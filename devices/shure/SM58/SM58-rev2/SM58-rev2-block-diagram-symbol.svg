@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-30 -30 135 80" width="135" height="80">
+  <g id="SM58-rev2-contents-start">
+    <rect x="0" y="0" width="70" height="20" fill="#c38989" stroke="#000000" id="sde-1773813361192-wk57u70" class=""/>
+    <circle class="connector" data-pin-name="out1" cx="70" cy="10" r="0.1" fill="black" id="sde-1773813353235-tyes994" style=""/>
+    <text x="30" y="10" font-family="Arial, Helvetica, sans-serif" fill="#010100" font-size="12" id="sde-1773813393091-4m2xe01" class="selected" text-anchor="middle" dominant-baseline="middle">
+      SM58    </text>
+    <line x1="70" y1="0" x2="60" y2="10" stroke="#000000" id="sde-1773813435908-k9eaql7"/>
+    <line x1="70" y1="20" x2="60" y2="10" stroke="#000000" id="sde-1773813437941-kvf36kp"/>
+  </g>
+  <g id="SM58-rev2-contents-end"></g>
+</svg>
