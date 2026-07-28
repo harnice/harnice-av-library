@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-37.261531829833984 -45 127.53611755371094 90" width="127.53611755371094" height="90">
+  <g id="disconnect_gh_ab-rev1-contents-start">
+    <path class="" transform="translate(0,0)" d="m10 10a10 10 0 0 1-8.6603-5 10 10 0 0 1 0-10 10 10 0 0 1 8.6603-5v10z" fill="#6f6f6f" stroke="#000" id="sde-1777081605890-nmxtrvv"/>
+    <path class="" transform="translate(0,0)" d="m20-10a10 10 0 0 1 10 10 10 10 0 0 1-10 10v-10z" fill="#6f6f6f" stroke="#000" id="sde-1777081605891-7p2kkn5"/>
+    <circle class="connector" r="0.1" style="" data-pin-name="A" fill="black" id="sde-1777081605891-cftxc64"/>
+    <circle class="connector" cx="30" r="0.1" style="" data-pin-name="B" fill="black" id="sde-1777081605891-0inysgg"/>
+    <line class="" x1="12.5" x2="20" stroke="#000" stroke-dasharray="1.26490998,1.26490998" stroke-width="1.2649" y1="0" y2="0" id="sde-1777081605891-07ftrnl"/>
+    <line class="" x1="30" x2="20" stroke="none" stroke-dasharray="1.26491, 1.26491" stroke-width="1.2649" y1="10" y2="10" data-harnice-gui-only="1" data-harnice-gui-paint-stroke="#000000" id="sde-1777081605891-grqiro6" stroke-opacity="0" fill="none"/>
+    <line class="" x1="0" x2="10" stroke="none" stroke-dasharray="1.26491, 1.26491" stroke-width="1.2649" y1="-10" y2="-10" data-harnice-gui-only="1" data-harnice-gui-paint-stroke="#000000" id="sde-1777081605891-1xl7r8x" stroke-opacity="0" fill="none"/>
+    <circle class="connector" cy="-10" r="0.1" data-pin-name="B_GHOST" style="" fill="black" cx="0" id="sde-1777081605891-usu4sil"/>
+    <circle class="connector" cx="30" cy="10" r="0.1" data-pin-name="A_GHOST" style="" fill="black" id="sde-1777081605891-cv8bnrh"/>
+    <line class="" x1="10" x2="20" stroke="none" stroke-dasharray="1.26490998,1.26490998" stroke-width="1.2649" y1="-10" y2="0" data-harnice-gui-only="1" data-harnice-gui-paint-stroke="#000" id="sde-1777081605891-d1f5nv4" stroke-opacity="0" fill="none"/>
+    <line class="" x1="10" x2="20" stroke="none" stroke-dasharray="1.26491, 1.26491" stroke-width="1.2649" y1="0" y2="10" data-harnice-gui-only="1" data-harnice-gui-paint-stroke="#000000" id="sde-1777081605891-9b35ahe" stroke-opacity="0" fill="none"/>
+    <text x="5.473440647125244" y="0.4157044291496277" font-family="Arial, Helvetica, sans-serif" fill="#000000" font-size="8" class="" text-anchor="middle" dominant-baseline="middle" id="sde-1777081605891-dpm46bg">A</text>
+    <text x="24.226328372955322" y="0.23094648122787476" font-family="Arial, Helvetica, sans-serif" fill="#000000" font-size="8" class="" text-anchor="middle" dominant-baseline="middle" id="sde-1777081605891-jevcjls">B</text>
+    <text class="attribute text" x="31.884552001953125" y="-9.010608673095703" font-family="Arial, Helvetica, sans-serif" fill="#000000" font-size="6" data-attribute-name="REFDES" dominant-baseline="hanging" id="sde-1777081605891-252zzo0">{REFDES}</text>
+  </g>
+  <g id="disconnect_gh_ab-rev1-contents-end"></g>
+</svg>

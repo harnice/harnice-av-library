@@ -1,2 +1,2 @@
-mfg	pn	desc	rev	status	releaseticket	library_repo	product	library_subpath	datestarted	datemodified	datereleased	drawnby	checkedby	revisionupdates	affectedinstances
-	none	DSUB DISCONNECT, BALANCED AUDIO	1			https://github.com/harnice/harnice	device	db25/audio/tascam-db25/	9/25/25	10/23/25				INITIAL RELEASE	
+product	mfg	pn	desc	rev	status	releaseticket	library_repo	library_subpath	datestarted	datemodified	datereleased	git_hash_of_harnice_src	drawnby	checkedby	revisionupdates	affectedinstances
+disconnect		none	DSUB DISCONNECT, BALANCED AUDIO	1			https://github.com/harnice/harnice	db25/audio/tascam-db25/	9/25/25	6/14/26		77c6113027eaeaeebe614c4de400d45fe2a01976	K SHUTT		INITIAL RELEASE	
