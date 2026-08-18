@@ -1,0 +1,170 @@
+{
+  "tools": [
+    "T8 Torx driver",
+    "13 mm wrench"
+  ],
+  "build_notes": [],
+  "csys_children": {
+    "flagnote-1": {
+      "x": 5.9921,
+      "y": 0.0,
+      "rotation": 0
+    },
+    "flagnote-1-leader_dest": {
+      "x": 2.9921,
+      "y": 0.0,
+      "rotation": 0
+    },
+    "flagnote-2": {
+      "x": 5.8899,
+      "y": 0.7765,
+      "rotation": 0
+    },
+    "flagnote-2-leader_dest": {
+      "x": 2.9921,
+      "y": 0.4009,
+      "rotation": 0
+    },
+    "flagnote-3": {
+      "x": 5.8899,
+      "y": -0.7765,
+      "rotation": 0
+    },
+    "flagnote-3-leader_dest": {
+      "x": 2.9921,
+      "y": -0.4009,
+      "rotation": 0
+    },
+    "flagnote-4": {
+      "x": 5.5902,
+      "y": 1.5,
+      "rotation": 0
+    },
+    "flagnote-4-leader_dest": {
+      "x": 2.3228,
+      "y": 0.4773,
+      "rotation": 0
+    },
+    "flagnote-5": {
+      "x": 5.5902,
+      "y": -1.5,
+      "rotation": 0
+    },
+    "flagnote-5-leader_dest": {
+      "x": 2.3228,
+      "y": -0.4773,
+      "rotation": 0
+    },
+    "flagnote-6": {
+      "x": 5.1134,
+      "y": 2.1213,
+      "rotation": 0
+    },
+    "flagnote-6-leader_dest": {
+      "x": 2.0551,
+      "y": 0.5591,
+      "rotation": 0
+    },
+    "flagnote-7": {
+      "x": 5.1134,
+      "y": -2.1213,
+      "rotation": 0
+    },
+    "flagnote-7-leader_dest": {
+      "x": 2.0551,
+      "y": -0.5591,
+      "rotation": 0
+    },
+    "flagnote-8": {
+      "x": 4.4921,
+      "y": 2.5981,
+      "rotation": 0
+    },
+    "flagnote-8-leader_dest": {
+      "x": 1.8188,
+      "y": 0.5591,
+      "rotation": 0
+    },
+    "flagnote-9": {
+      "x": 4.4921,
+      "y": -2.5981,
+      "rotation": 0
+    },
+    "flagnote-9-leader_dest": {
+      "x": 1.8188,
+      "y": -0.5591,
+      "rotation": 0
+    },
+    "flagnote-10": {
+      "x": 3.7686,
+      "y": -2.8978,
+      "rotation": 0
+    },
+    "flagnote-10-leader_dest": {
+      "x": 1.6459,
+      "y": -0.5591,
+      "rotation": 0
+    },
+    "flagnote-11": {
+      "x": 3.7686,
+      "y": 2.8978,
+      "rotation": 0
+    },
+    "flagnote-11-leader_dest": {
+      "x": 1.6459,
+      "y": 0.5591,
+      "rotation": 0
+    },
+    "flagnote-12": {
+      "x": 2.9921,
+      "y": -3.0,
+      "rotation": 0
+    },
+    "flagnote-12-leader_dest": {
+      "x": 1.4961,
+      "y": -0.5591,
+      "rotation": 0
+    },
+    "flagnote-13": {
+      "x": 2.9921,
+      "y": 3.0,
+      "rotation": 0
+    },
+    "flagnote-13-leader_dest": {
+      "x": 1.4961,
+      "y": 0.5591,
+      "rotation": 0
+    }
+  },
+  "contacts": [
+    {
+      "name": "L",
+      "size": "screw terminal"
+    },
+    {
+      "name": "N",
+      "size": "screw terminal"
+    },
+    {
+      "name": "PE",
+      "size": "screw terminal"
+    }
+  ],
+  "mfg": "Neutrik",
+  "family": "powerCON",
+  "series": "powerCON TRUE1 TOP Large",
+  "poles": 3,
+  "gender": "female",
+  "termination": "screw terminal",
+  "finish": "nickel housing, silver contacts",
+  "contact_plating": "Ag",
+  "housing_material": "glass-reinforced polyamide",
+  "bushing_color": "black",
+  "cable_od_mm": [
+    10.0,
+    16.0
+  ],
+  "overall_length_mm": 76.0,
+  "max_diameter_mm": 28.4,
+  "datasheet": "https://www.neutrik.com/media/10093/download/Neutrik%20Product%20Guide%20-%2006%20powerCON%20and%20Circular%20Connectors%20PG%20EN%20202210-V25.pdf"
+}

@@ -1,0 +1,169 @@
+{
+  "tools": [
+    "Soldering iron"
+  ],
+  "build_notes": [],
+  "csys_children": {
+    "flagnote-1": {
+      "x": 5.8701,
+      "y": 0.0,
+      "rotation": 0
+    },
+    "flagnote-1-leader_dest": {
+      "x": 2.8701,
+      "y": 0.0,
+      "rotation": 0
+    },
+    "flagnote-2": {
+      "x": 5.7679,
+      "y": 0.7765,
+      "rotation": 0
+    },
+    "flagnote-2-leader_dest": {
+      "x": 2.5921,
+      "y": 0.31,
+      "rotation": 0
+    },
+    "flagnote-3": {
+      "x": 5.7679,
+      "y": -0.7765,
+      "rotation": 0
+    },
+    "flagnote-3-leader_dest": {
+      "x": 2.5921,
+      "y": -0.31,
+      "rotation": 0
+    },
+    "flagnote-4": {
+      "x": 5.4682,
+      "y": 1.5,
+      "rotation": 0
+    },
+    "flagnote-4-leader_dest": {
+      "x": 2.0829,
+      "y": 0.374,
+      "rotation": 0
+    },
+    "flagnote-5": {
+      "x": 5.4682,
+      "y": -1.5,
+      "rotation": 0
+    },
+    "flagnote-5-leader_dest": {
+      "x": 2.0829,
+      "y": -0.374,
+      "rotation": 0
+    },
+    "flagnote-6": {
+      "x": 4.9914,
+      "y": 2.1213,
+      "rotation": 0
+    },
+    "flagnote-6-leader_dest": {
+      "x": 1.8091,
+      "y": 0.374,
+      "rotation": 0
+    },
+    "flagnote-7": {
+      "x": 4.9914,
+      "y": -2.1213,
+      "rotation": 0
+    },
+    "flagnote-7-leader_dest": {
+      "x": 1.8091,
+      "y": -0.374,
+      "rotation": 0
+    },
+    "flagnote-8": {
+      "x": 4.3701,
+      "y": 2.5981,
+      "rotation": 0
+    },
+    "flagnote-8-leader_dest": {
+      "x": 1.651,
+      "y": 0.374,
+      "rotation": 0
+    },
+    "flagnote-9": {
+      "x": 4.3701,
+      "y": -2.5981,
+      "rotation": 0
+    },
+    "flagnote-9-leader_dest": {
+      "x": 1.651,
+      "y": -0.374,
+      "rotation": 0
+    },
+    "flagnote-10": {
+      "x": 3.6465,
+      "y": -2.8978,
+      "rotation": 0
+    },
+    "flagnote-10-leader_dest": {
+      "x": 1.5353,
+      "y": -0.374,
+      "rotation": 0
+    },
+    "flagnote-11": {
+      "x": 3.6465,
+      "y": 2.8978,
+      "rotation": 0
+    },
+    "flagnote-11-leader_dest": {
+      "x": 1.5353,
+      "y": 0.374,
+      "rotation": 0
+    },
+    "flagnote-12": {
+      "x": 2.8701,
+      "y": -3.0,
+      "rotation": 0
+    },
+    "flagnote-12-leader_dest": {
+      "x": 1.435,
+      "y": -0.374,
+      "rotation": 0
+    },
+    "flagnote-13": {
+      "x": 2.8701,
+      "y": 3.0,
+      "rotation": 0
+    },
+    "flagnote-13-leader_dest": {
+      "x": 1.435,
+      "y": 0.374,
+      "rotation": 0
+    }
+  },
+  "contacts": [
+    {
+      "name": "1",
+      "size": "solder cup"
+    },
+    {
+      "name": "2",
+      "size": "solder cup"
+    },
+    {
+      "name": "3",
+      "size": "solder cup"
+    }
+  ],
+  "mfg": "Neutrik",
+  "family": "XLR",
+  "series": "XX",
+  "poles": 3,
+  "gender": "female",
+  "termination": "solder cup",
+  "finish": "white painted housing, silver contacts",
+  "contact_plating": "Ag",
+  "housing_material": "zinc diecast (ZnAl4Cu1)",
+  "bushing_color": "black",
+  "cable_od_mm": [
+    3.5,
+    8.0
+  ],
+  "overall_length_mm": 72.9,
+  "max_diameter_mm": 19.0,
+  "datasheet": "https://www.neutrik.com/media/19523/download/Assembly%20Instruction%20-%20XLR%20XX%20Series.pdf"
+}

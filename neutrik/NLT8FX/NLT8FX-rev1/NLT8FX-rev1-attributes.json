@@ -1,0 +1,189 @@
+{
+  "tools": [
+    "2.5 mm flat-blade screwdriver"
+  ],
+  "build_notes": [],
+  "csys_children": {
+    "flagnote-1": {
+      "x": 6.2283,
+      "y": 0.0,
+      "rotation": 0
+    },
+    "flagnote-1-leader_dest": {
+      "x": 3.2283,
+      "y": 0.0,
+      "rotation": 0
+    },
+    "flagnote-2": {
+      "x": 6.1261,
+      "y": 0.7765,
+      "rotation": 0
+    },
+    "flagnote-2-leader_dest": {
+      "x": 3.2283,
+      "y": 0.4325,
+      "rotation": 0
+    },
+    "flagnote-3": {
+      "x": 6.1261,
+      "y": -0.7765,
+      "rotation": 0
+    },
+    "flagnote-3-leader_dest": {
+      "x": 3.2283,
+      "y": -0.4325,
+      "rotation": 0
+    },
+    "flagnote-4": {
+      "x": 5.8264,
+      "y": 1.5,
+      "rotation": 0
+    },
+    "flagnote-4-leader_dest": {
+      "x": 2.5591,
+      "y": 0.5455,
+      "rotation": 0
+    },
+    "flagnote-5": {
+      "x": 5.8264,
+      "y": -1.5,
+      "rotation": 0
+    },
+    "flagnote-5-leader_dest": {
+      "x": 2.5591,
+      "y": -0.5455,
+      "rotation": 0
+    },
+    "flagnote-6": {
+      "x": 5.3497,
+      "y": 2.1213,
+      "rotation": 0
+    },
+    "flagnote-6-leader_dest": {
+      "x": 2.2047,
+      "y": 0.5906,
+      "rotation": 0
+    },
+    "flagnote-7": {
+      "x": 5.3497,
+      "y": -2.1213,
+      "rotation": 0
+    },
+    "flagnote-7-leader_dest": {
+      "x": 2.2047,
+      "y": -0.5906,
+      "rotation": 0
+    },
+    "flagnote-8": {
+      "x": 4.7283,
+      "y": 2.5981,
+      "rotation": 0
+    },
+    "flagnote-8-leader_dest": {
+      "x": 1.9551,
+      "y": 0.5906,
+      "rotation": 0
+    },
+    "flagnote-9": {
+      "x": 4.7283,
+      "y": -2.5981,
+      "rotation": 0
+    },
+    "flagnote-9-leader_dest": {
+      "x": 1.9551,
+      "y": -0.5906,
+      "rotation": 0
+    },
+    "flagnote-10": {
+      "x": 4.0048,
+      "y": -2.8978,
+      "rotation": 0
+    },
+    "flagnote-10-leader_dest": {
+      "x": 1.7724,
+      "y": -0.5906,
+      "rotation": 0
+    },
+    "flagnote-11": {
+      "x": 4.0048,
+      "y": 2.8978,
+      "rotation": 0
+    },
+    "flagnote-11-leader_dest": {
+      "x": 1.7724,
+      "y": 0.5906,
+      "rotation": 0
+    },
+    "flagnote-12": {
+      "x": 3.2283,
+      "y": -3.0,
+      "rotation": 0
+    },
+    "flagnote-12-leader_dest": {
+      "x": 1.6142,
+      "y": -0.5906,
+      "rotation": 0
+    },
+    "flagnote-13": {
+      "x": 3.2283,
+      "y": 3.0,
+      "rotation": 0
+    },
+    "flagnote-13-leader_dest": {
+      "x": 1.6142,
+      "y": 0.5906,
+      "rotation": 0
+    }
+  },
+  "contacts": [
+    {
+      "name": "1+",
+      "size": "screw terminal"
+    },
+    {
+      "name": "1-",
+      "size": "screw terminal"
+    },
+    {
+      "name": "2+",
+      "size": "screw terminal"
+    },
+    {
+      "name": "2-",
+      "size": "screw terminal"
+    },
+    {
+      "name": "3+",
+      "size": "screw terminal"
+    },
+    {
+      "name": "3-",
+      "size": "screw terminal"
+    },
+    {
+      "name": "4+",
+      "size": "screw terminal"
+    },
+    {
+      "name": "4-",
+      "size": "screw terminal"
+    }
+  ],
+  "mfg": "Neutrik",
+  "family": "speakON",
+  "series": "STX",
+  "poles": 8,
+  "gender": "female",
+  "termination": "screw terminal",
+  "finish": "nickel housing, silver contacts",
+  "contact_plating": "Ag",
+  "housing_material": "zinc diecast (ZnAl4Cu1)",
+  "bushing_color": "black",
+  "cable_od_mm": [
+    8.0,
+    20.0
+  ],
+  "overall_length_mm": 82.0,
+  "max_diameter_mm": 30.0,
+  "datasheet": "https://www.neutrik.com/media/10094/download/03%20NEUTRIK%20PG%20E%20-%20speakON%20Connectors%20-%20202104-V21.pdf"
+}
