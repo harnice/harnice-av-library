@@ -1,0 +1,16 @@
+fields:
+- id: ch1_vol
+  type: number
+  label: Channel 1 volume
+  required: false
+  default: 0
+  validation:
+    maximum: 10
+- id: ch2_vol
+  type: number
+  label: Channel 2 volume
+  required: false
+  default: 0
+  validation:
+    maximum: 10
+    minimum: 0
