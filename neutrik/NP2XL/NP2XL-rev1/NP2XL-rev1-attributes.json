@@ -1,0 +1,169 @@
+{
+  "tools": [
+    "Soldering iron"
+  ],
+  "build_notes": [
+    "Chuck-type strain relief accepts 4.0 - 10.0 mm cable O.D.",
+    "Housing, chuck and bushing ship as one assembly; no backshell or separate strain relief part is required.",
+    "Conforms to IEC 60603-11 / EIA RS-453."
+  ],
+  "csys_children": {
+    "flagnote-1": {
+      "x": 5.7165,
+      "y": 0.0,
+      "rotation": 0
+    },
+    "flagnote-1-leader_dest": {
+      "x": 2.7165,
+      "y": 0.0,
+      "rotation": 0
+    },
+    "flagnote-2": {
+      "x": 5.6143,
+      "y": 0.7765,
+      "rotation": 0
+    },
+    "flagnote-2-leader_dest": {
+      "x": 1.8248,
+      "y": 0.125,
+      "rotation": 0
+    },
+    "flagnote-3": {
+      "x": 5.6143,
+      "y": -0.7765,
+      "rotation": 0
+    },
+    "flagnote-3-leader_dest": {
+      "x": 1.8248,
+      "y": -0.125,
+      "rotation": 0
+    },
+    "flagnote-4": {
+      "x": 5.3146,
+      "y": 1.5,
+      "rotation": 0
+    },
+    "flagnote-4-leader_dest": {
+      "x": 1.5748,
+      "y": 0.125,
+      "rotation": 0
+    },
+    "flagnote-5": {
+      "x": 5.3146,
+      "y": -1.5,
+      "rotation": 0
+    },
+    "flagnote-5-leader_dest": {
+      "x": 1.5748,
+      "y": -0.125,
+      "rotation": 0
+    },
+    "flagnote-6": {
+      "x": 4.8379,
+      "y": 2.1213,
+      "rotation": 0
+    },
+    "flagnote-6-leader_dest": {
+      "x": 1.4926,
+      "y": 0.1343,
+      "rotation": 0
+    },
+    "flagnote-7": {
+      "x": 4.8379,
+      "y": -2.1213,
+      "rotation": 0
+    },
+    "flagnote-7-leader_dest": {
+      "x": 1.4926,
+      "y": -0.1343,
+      "rotation": 0
+    },
+    "flagnote-8": {
+      "x": 4.2165,
+      "y": 2.5981,
+      "rotation": 0
+    },
+    "flagnote-8-leader_dest": {
+      "x": 1.4702,
+      "y": 0.1939,
+      "rotation": 0
+    },
+    "flagnote-9": {
+      "x": 4.2165,
+      "y": -2.5981,
+      "rotation": 0
+    },
+    "flagnote-9-leader_dest": {
+      "x": 1.4702,
+      "y": -0.1939,
+      "rotation": 0
+    },
+    "flagnote-10": {
+      "x": 3.493,
+      "y": -2.8978,
+      "rotation": 0
+    },
+    "flagnote-10-leader_dest": {
+      "x": 1.4352,
+      "y": -0.2871,
+      "rotation": 0
+    },
+    "flagnote-11": {
+      "x": 3.493,
+      "y": 2.8978,
+      "rotation": 0
+    },
+    "flagnote-11-leader_dest": {
+      "x": 1.4352,
+      "y": 0.2871,
+      "rotation": 0
+    },
+    "flagnote-12": {
+      "x": 2.7165,
+      "y": -3.0,
+      "rotation": 0
+    },
+    "flagnote-12-leader_dest": {
+      "x": 1.3583,
+      "y": -0.3346,
+      "rotation": 0
+    },
+    "flagnote-13": {
+      "x": 2.7165,
+      "y": 3.0,
+      "rotation": 0
+    },
+    "flagnote-13-leader_dest": {
+      "x": 1.3583,
+      "y": 0.3346,
+      "rotation": 0
+    }
+  },
+  "contacts": [
+    {
+      "name": "T",
+      "size": "solder cup"
+    },
+    {
+      "name": "S",
+      "size": "solder cup"
+    }
+  ],
+  "mfg": "Neutrik",
+  "family": "TRS",
+  "series": "jumboPLUG",
+  "poles": 2,
+  "gender": "male",
+  "termination": "solder cup",
+  "finish": "nickel housing, nickel contacts",
+  "contact_plating": "Ni",
+  "housing_material": "zinc diecast (ZnAl4Cu1)",
+  "bushing_color": "black",
+  "cable_od_mm": [
+    4.0,
+    10.0
+  ],
+  "overall_length_mm": 69.0,
+  "max_diameter_mm": 17.0,
+  "datasheet": "https://media.djmania.net/manuales/pdf/Manual_Neutrik_NP3X.pdf"
+}
