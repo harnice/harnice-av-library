@@ -3,11 +3,7 @@
     "T8 Torx driver",
     "13 mm wrench"
   ],
-  "build_notes": [
-    "Chuck-type strain relief accepts 10.0 - 16.0 mm cable O.D.",
-    "Housing, chuck and bushing ship as one assembly; no backshell or separate strain relief part is required.",
-    "Connector with breaking capacity: may be mated or unmated under load."
-  ],
+  "build_notes": [],
   "csys_children": {
     "flagnote-1": {
       "x": 5.9921,

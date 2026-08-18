@@ -1,11 +1,6 @@
 {
   "tools": [],
-  "build_notes": [
-    "Chuck-type strain relief accepts 4.5 - 8.0 mm cable O.D.",
-    "Housing, chuck and bushing ship as one assembly; no backshell or separate strain relief part is required.",
-    "Carrier does not include an RJ45 plug; supply a pre-assembled RJ45 cable.",
-    "Does not intermate with the CAT6 chassis connectors NE8FDY-C6 / NE8FDY-C6-B."
-  ],
+  "build_notes": [],
   "csys_children": {
     "flagnote-1": {
       "x": 5.9724,

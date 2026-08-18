@@ -2,10 +2,7 @@
   "tools": [
     "Soldering iron"
   ],
-  "build_notes": [
-    "Chuck-type strain relief accepts 3.5 - 8.0 mm cable O.D.",
-    "Housing, chuck and bushing ship as one assembly; no backshell or separate strain relief part is required."
-  ],
+  "build_notes": [],
   "csys_children": {
     "flagnote-1": {
       "x": 5.7598,

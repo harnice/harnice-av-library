@@ -772,17 +772,6 @@ POWERCON_SOURCE = "https://www.neutrik.com/media/10093/download/Neutrik%20Produc
 PHONE_SOURCE = "https://media.djmania.net/manuales/pdf/Manual_Neutrik_NP3X.pdf"
 SPEAKON_SOURCE = "https://www.neutrik.com/media/10094/download/03%20NEUTRIK%20PG%20E%20-%20speakON%20Connectors%20-%20202104-V21.pdf"
 
-EMBEDDED_NOTE = (
-    "Housing, chuck and bushing ship as one assembly; no backshell or separate "
-    "strain relief part is required."
-)
-
-
-def _cable_note(od_min, od_max):
-    return (
-        f"Chuck-type strain relief accepts {od_min:.1f} - {od_max:.1f} mm cable O.D."
-    )
-
 
 def _xlr_variants():
     for poles in XLR_XX_POLES:
@@ -805,7 +794,6 @@ def _xlr_variants():
                     "tools": ["Soldering iron"],
                     "profile": xlr_xx_profile(gender),
                     "source": XLR_XX_SOURCE,
-                    "notes": [],
                 }
 
 
@@ -820,10 +808,6 @@ def _ethercon_variants():
         ("NE8MX6-T", "", "CAT6A self-termination cable connector, insulation diameter <= 1.1 mm", [7.0, 9.5], "CAT6A", ["Cable stripping tool", "Flush cutter"]),
     ]
     for mpn, finish, desc, cable_od, category, tools in catalog:
-        notes = []
-        if mpn.startswith("NE8MX") and "6" not in mpn:
-            notes.append("Carrier does not include an RJ45 plug; supply a pre-assembled RJ45 cable.")
-            notes.append("Does not intermate with the CAT6 chassis connectors NE8FDY-C6 / NE8FDY-C6-B.")
         yield {
             "mpn": mpn,
             "family": "etherCON",
@@ -841,7 +825,6 @@ def _ethercon_variants():
             "profile": ethercon_profile(),
             "source": ETHERCON_SOURCE,
             "product_desc": desc,
-            "notes": notes,
         }
 
 
@@ -880,9 +863,6 @@ def _powercon_variants():
             "profile": profile,
             "source": POWERCON_SOURCE,
             "product_desc": desc,
-            "notes": ["Connector with breaking capacity: may be mated or unmated under load."]
-            if true1
-            else ["Do not mate or unmate under load; powerCON 20 A is not a connector with breaking capacity."],
         }
 
 
@@ -948,7 +928,6 @@ def _phone_variants():
             "source": PHONE_SOURCE,
             "product_desc": desc,
             "plating_override": plating,
-            "notes": ["Conforms to IEC 60603-11 / EIA RS-453."],
         }
 
 
@@ -1008,7 +987,6 @@ def _speakon_variants():
             "profile": speakon_profile(body_dia, total_length, bushing_dia),
             "source": SPEAKON_SOURCE,
             "product_desc": desc,
-            "notes": [],
         }
 
 
@@ -1303,12 +1281,9 @@ def compile_part_attributes(variant):
         {"name": name, "size": variant["termination"]}
         for name in variant["contact_names"]
     ]
-    od_min, od_max = variant["cable_od_mm"]
-    build_notes = [_cable_note(od_min, od_max), EMBEDDED_NOTE] + variant.get("notes", [])
-
     return {
         "tools": list(variant["tools"]),
-        "build_notes": build_notes,
+        "build_notes": [],
         "csys_children": flagnote_csys_children(
             variant["profile"], variant["mpn"], variant.get("tab")
         ),
