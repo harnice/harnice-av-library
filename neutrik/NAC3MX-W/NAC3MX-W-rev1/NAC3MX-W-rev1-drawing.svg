@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="400" height="400">
-<g id="NAC3MX-W-drawing-contents-start">
+  <g id="NAC3MX-W-drawing-contents-start">
 <!-- powerCON powerCON TRUE1 envelope from https://www.neutrik.com/media/10093/download/Neutrik%20Product%20Guide%20-%2006%20powerCON%20and%20Circular%20Connectors%20PG%20EN%20202210-V25.pdf -->
 <!-- Cable exit is embedded: chuck-type strain relief is part of this part number -->
 <polygon points="0.00,-24.57 90.71,-35.91 90.71,35.91 0.00,24.57" fill="#1A1A1A" stroke="none"/>
@@ -71,7 +71,7 @@
 <polygon points="0.00,-24.57 90.71,-35.91 90.71,-35.91 113.39,-53.67 113.39,-53.67 204.09,-53.67 204.09,-53.67 222.99,-53.67 222.99,-44.60 287.24,-44.60 287.24,44.60 222.99,44.60 222.99,53.67 204.09,53.67 204.09,53.67 113.39,53.67 113.39,53.67 90.71,35.91 90.71,35.91 0.00,24.57" fill="none" stroke="#222222" stroke-width="1.5"/>
 </g>
 <g id="NAC3MX-W-drawing-contents-end">
-</g>
+  </g>
   <g id="output csys locations">
     <g id="flagnote-1">
       <circle cx="575.24" cy="-0.00" r="4" fill="black"/>

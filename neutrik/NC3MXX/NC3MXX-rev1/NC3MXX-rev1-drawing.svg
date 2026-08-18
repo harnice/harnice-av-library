@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="400" height="400">
-<g id="NC3MXX-drawing-contents-start">
+  <g id="NC3MXX-drawing-contents-start">
 <!-- XLR XX envelope from https://www.neutrik.com/media/19523/download/Assembly%20Instruction%20-%20XLR%20XX%20Series.pdf -->
 <!-- Cable exit is embedded: chuck-type strain relief is part of this part number -->
 <polygon points="0.00,-18.90 60.47,-30.24 60.47,30.24 0.00,18.90" fill="#1A1A1A" stroke="none"/>
@@ -28,7 +28,7 @@
 <polygon points="0.00,-18.90 60.47,-30.24 60.47,-35.91 105.83,-35.91 105.83,-35.91 264.94,-35.91 264.94,35.91 105.83,35.91 105.83,35.91 60.47,35.91 60.47,30.24 0.00,18.90" fill="none" stroke="#222222" stroke-width="1.5"/>
 </g>
 <g id="NC3MXX-drawing-contents-end">
-</g>
+  </g>
   <g id="output csys locations">
     <g id="flagnote-1">
       <circle cx="552.94" cy="-0.00" r="4" fill="black"/>

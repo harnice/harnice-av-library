@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="400" height="400">
-<g id="NP3X-B-drawing-contents-start">
+  <g id="NP3X-B-drawing-contents-start">
 <!-- TRS PX envelope from https://media.djmania.net/manuales/pdf/Manual_Neutrik_NP3X.pdf -->
 <!-- Cable exit is embedded: chuck-type strain relief is part of this part number -->
 <polygon points="0.00,-17.01 30.24,-21.73 30.24,21.73 0.00,17.01" fill="#1A1A1A" stroke="none"/>
@@ -62,7 +62,7 @@
 <polygon points="0.00,-17.01 30.24,-21.73 30.24,-27.40 136.06,-27.40 136.06,-27.40 143.62,-12.00 143.62,-12.00 200.31,-12.00 200.31,-12.00 207.12,-12.00 207.12,-12.00 231.31,-12.00 231.31,-12.00 238.11,-12.00 238.11,-12.00 260.79,-12.00 260.79,12.00 238.11,12.00 238.11,12.00 231.31,12.00 231.31,12.00 207.12,12.00 207.12,12.00 200.31,12.00 200.31,12.00 143.62,12.00 143.62,12.00 136.06,27.40 136.06,27.40 30.24,27.40 30.24,21.73 0.00,17.01" fill="none" stroke="#222222" stroke-width="1.5"/>
 </g>
 <g id="NP3X-B-drawing-contents-end">
-</g>
+  </g>
   <g id="output csys locations">
     <g id="flagnote-1">
       <circle cx="548.78" cy="-0.00" r="4" fill="black"/>

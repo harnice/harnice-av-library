@@ -421,7 +421,24 @@ def attach_iconic_tab(variant):
         tab = make_tab(profile, 8.0, 2.0, 5.0, from_front_mm=4.0)
         tab["style"] = "window"
     variant["tab"] = tab
+    variant["cavity"] = mating_cavity(variant)
     return variant
+
+
+def mating_cavity(variant):
+    """Blind bore from the mating face (STEP only), or None.
+
+    XLR males are a socket: the female Ø15.75 × 15 mm sleeve (drawing
+    20006264) inserts into this cavity. etherCON carriers are the same
+    thin-wall tube so the latch window can punch through into the RJ45
+    well. The cut is a cylinder on +X, open at the mating face.
+    """
+    family, gender = variant["family"], variant["gender"]
+    if family == "XLR" and gender == "male":
+        return {"dia_mm": 15.75, "depth_mm": 15.0}
+    if family == "etherCON":
+        return {"dia_mm": 15.75, "depth_mm": 15.0}
+    return None
 
 
 def silhouette_closed_mm(stations, tab=None):
@@ -628,6 +645,8 @@ def xlr_xx_profile(gender):
         seg(12.0, 19.0, "bushing", ribs=8),
     ]
     if gender == "male":
+        # Solid envelope is a Ø19 tube; the Ø15.75 × 15 mm mating bore is cut
+        # in STEP (see mating_cavity), not revolved as an inner station.
         return boot + [seg(42.1, 19.0, "shell", grooves=2)]
     return boot + [
         seg(29.9, 19.0, "shell", grooves=2),
@@ -1129,14 +1148,89 @@ def write_part_step(rev_dir, variant):
     path = os.path.join(rev_dir, f"{part_number}-rev{REVISION}-model.step")
     stations = profile_stations(variant["profile"])
     tab = variant.get("tab")
+    cavity = variant.get("cavity")
+    window = tab if tab and tab.get("style") == "window" else None
     description = f"Neutrik {variant['family']} low-fidelity envelope"
-    if tab and tab.get("style") != "window":
+    if tab and window is None:
         try:
             _write_revolution_with_tab_step(path, part_number, stations, tab)
             return path
         except ImportError:
             pass
+    if cavity or window:
+        try:
+            _write_revolution_with_cavity_step(
+                path, part_number, stations, cavity, window
+            )
+            return path
+        except ImportError:
+            pass
     step_utils.write_revolution_step(path, part_number, stations, description=description)
+    return path
+
+
+def _ocp_positive_solid(stations):
+    from OCP.BRepGProp import BRepGProp
+    from OCP.GProp import GProp_GProps
+
+    body = step_utils._ocp_revolution_solid(stations)
+    props = GProp_GProps()
+    BRepGProp.VolumeProperties_s(body, props)
+    if props.Mass() < 0:
+        body.Reverse()
+    return body
+
+
+def _ocp_cut(body, tool, label):
+    from OCP.BRepAlgoAPI import BRepAlgoAPI_Cut
+
+    op = BRepAlgoAPI_Cut(body, tool)
+    op.SetFuzzyValue(0.05)
+    op.Build()
+    cut = op.Shape()
+    if not op.IsDone() or cut.IsNull():
+        raise RuntimeError(f"{label} cut failed")
+    return cut
+
+
+def _window_slot_tool(tab, cavity):
+    """Box through the +Z wall: latch window toward the drawing camera."""
+    from OCP.BRepPrimAPI import BRepPrimAPI_MakeBox
+    from OCP.gp import gp_Pnt
+
+    x0 = float(tab["x_mm"])
+    length = float(tab["length_mm"])
+    width = float(tab["width_mm"])
+    outer_r = float(tab["shell_radius_mm"])
+    inner_r = float(cavity["dia_mm"]) / 2.0 if cavity else max(0.5, outer_r - 2.0)
+    overlap = 0.8
+    overshoot = 1.5
+    z0 = inner_r - overlap
+    return BRepPrimAPI_MakeBox(
+        gp_Pnt(x0, -width / 2.0, z0),
+        length,
+        width,
+        (outer_r + overshoot) - z0,
+    ).Shape()
+
+
+def _write_revolution_with_cavity_step(path, part_number, stations, cavity, window=None):
+    """Revolve about +X, cut the mating bore, then punch the latch window."""
+    body = _ocp_positive_solid(stations)
+    if cavity:
+        x_face = float(stations[-1][0])
+        depth = float(cavity["depth_mm"])
+        radius = float(cavity["dia_mm"]) / 2.0
+        tool = step_utils._ocp_cylinder(
+            (x_face - depth, 0.0, 0.0),
+            (1.0, 0.0, 0.0),
+            radius,
+            depth + 1.0,
+        )
+        body = _ocp_cut(body, tool, f"{part_number} cavity")
+    if window:
+        body = _ocp_cut(body, _window_slot_tool(window, cavity), f"{part_number} window")
+    step_utils._ocp_write_shape(body, path, part_number)
     return path
 
 

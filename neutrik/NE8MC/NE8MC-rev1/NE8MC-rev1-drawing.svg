@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="400" height="400">
-<g id="NE8MC-drawing-contents-start">
+  <g id="NE8MC-drawing-contents-start">
 <!-- etherCON CAT5e envelope from https://www.neutrik.com/media/10044/download/Drawing%20NE8MX6.pdf -->
 <!-- Cable exit is embedded: chuck-type strain relief is part of this part number -->
 <polygon points="0.00,-19.84 45.35,-38.36 45.35,38.36 0.00,19.84" fill="#1A1A1A" stroke="none"/>
@@ -32,7 +32,7 @@
 <polygon points="0.00,-19.84 45.35,-38.36 45.35,-38.36 68.03,-38.36 68.03,-38.36 136.06,-38.36 136.06,-38.36 154.96,-38.36 154.96,-36.00 285.35,-36.00 285.35,36.00 154.96,36.00 154.96,38.36 136.06,38.36 136.06,38.36 68.03,38.36 68.03,38.36 45.35,38.36 45.35,38.36 0.00,19.84" fill="none" stroke="#222222" stroke-width="1.5"/>
 </g>
 <g id="NE8MC-drawing-contents-end">
-</g>
+  </g>
   <g id="output csys locations">
     <g id="flagnote-1">
       <circle cx="573.35" cy="-0.00" r="4" fill="black"/>

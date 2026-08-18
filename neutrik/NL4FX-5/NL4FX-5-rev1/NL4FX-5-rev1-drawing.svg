@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="400" height="400">
-<g id="NL4FX-5-drawing-contents-start">
+  <g id="NL4FX-5-drawing-contents-start">
 <!-- speakON X envelope from https://www.neutrik.com/media/10094/download/03%20NEUTRIK%20PG%20E%20-%20speakON%20Connectors%20-%20202104-V21.pdf -->
 <!-- Cable exit is embedded: chuck-type strain relief is part of this part number -->
 <polygon points="0.00,-20.79 83.15,-30.24 83.15,30.24 0.00,20.79" fill="#15803D" stroke="none"/>
@@ -70,7 +70,7 @@
 <polygon points="0.00,-20.79 83.15,-30.24 83.15,-30.24 102.05,-47.24 102.05,-47.24 196.54,-47.24 196.54,-47.24 215.43,-47.24 215.43,-35.91 279.69,-35.91 279.69,35.91 215.43,35.91 215.43,47.24 196.54,47.24 196.54,47.24 102.05,47.24 102.05,47.24 83.15,30.24 83.15,30.24 0.00,20.79" fill="none" stroke="#222222" stroke-width="1.5"/>
 </g>
 <g id="NL4FX-5-drawing-contents-end">
-</g>
+  </g>
   <g id="output csys locations">
     <g id="flagnote-1">
       <circle cx="567.69" cy="-0.00" r="4" fill="black"/>
