@@ -1,5 +1,5 @@
 from harnice.lists import signals_list
-from harnice.products import chtype
+from harnice.project_types import chtype
 
 ch_type_ids = {
     "in": (1, "https://github.com/harnice/harnice"),

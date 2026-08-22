@@ -1,2 +1,2 @@
-product	mfg	pn	desc	rev	status	releaseticket	library_repo	library_subpath	datestarted	datemodified	datereleased	git_hash_of_harnice_src	drawnby	checkedby	revisionupdates	affectedinstances
+project_type	mfg	pn	desc	rev	status	releaseticket	library_repo	library_subpath	datestarted	datemodified	datereleased	git_hash_of_harnice_src	drawnby	checkedby	revisionupdates	affectedinstances
 part	Neutrik	NLT4MX	NEUTRIK SPEAKON CABLE CONNECTOR, 4 POLE, MALE, NICKEL	1			https://github.com/harnice/harnice-av-library		8/18/26	8/18/26		2eedc575173255db64c1ae58a01a06f5ca417745	K SHUTT			
