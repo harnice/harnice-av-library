@@ -11,7 +11,7 @@ cable-connector product lines:
 
 Each part gets a revision folder containing an attributes JSON, a side-view
 drawing SVG, and a low-fidelity revolved STEP envelope, plus a family revision
-history TSV one level up — the same product contract the D38999 family uses.
+history TSV one level up — the same project type contract the D38999 family uses.
 
 Neutrik cable connectors have no separate backshell: the chuck-type strain
 relief, bushing and housing ship as one assembly. So unlike D38999 (which pairs
@@ -80,7 +80,7 @@ MANUFACTURER = "Neutrik"
 # ---------------------------------------------------------------------------
 # Drawing conventions
 # ---------------------------------------------------------------------------
-# SVG px per inch — must match harnice products/part.py csys rendering.
+# SVG px per inch — must match harnice project_types/part.py csys rendering.
 PX_PER_IN = 96.0
 MM_PER_IN = 25.4
 STROKE_COLOR = "#222222"
@@ -1327,7 +1327,7 @@ def _progress_bar(done, total, width=25):
 
 def revision_history_row(variant):
     return {
-        "product": state.product,
+        "project_type": state.project_type,
         "mfg": MANUFACTURER,
         "pn": variant["mpn"],
         "rev": REVISION,
@@ -1341,7 +1341,7 @@ def revision_history_row(variant):
 
 def main(step_only=False, svg_only=False, families=None, build=True):
     state.set_rev(REVISION)
-    state.set_product("part")
+    state.set_project_type("part")
 
     variants = list(iter_variants(families))
     total = len(variants)
