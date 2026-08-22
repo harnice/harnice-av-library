@@ -17,8 +17,10 @@ Neutrik cable connectors have no separate backshell: the chuck-type strain
 relief, bushing and housing ship as one assembly. So unlike D38999 (which pairs
 with an M85049 banding backshell as a second part number), the whole cable exit
 is embedded in this part's envelope and the origin sits on the cable-entry face
-rather than inboard of a rear accessory thread. There is no mating-side
-``find_backshell()`` lookup and no accessory csys.
+rather than inboard of a rear accessory thread (same cable-side origin the
+aerospace library uses for D38999 / D-sub / Mighty Mouse / thermocouple).
+STEP uses this same origin. The ``3d-mate`` output csys sits on the mating
+face. There is no ``find_backshell()`` lookup and no accessory csys.
 
 Dimensions are low-fidelity catalog envelopes. Sources are cited per series in
 CABLE_CONNECTOR_SERIES; where Neutrik does not tabulate an internal station the
@@ -85,8 +87,10 @@ PX_PER_IN = 96.0
 MM_PER_IN = 25.4
 STROKE_COLOR = "#222222"
 STROKE_WIDTH = 1.5
-# Everything is embedded (no backshell), so nothing overlaps −X: the origin is
-# on the cable-entry face and +X runs toward the mating face.
+# Part origin is the cable-entry face (same as the aerospace library). Nothing
+# overlaps −X: the bushing starts at x = 0 and +X runs toward the mating face.
+# STEP uses this same cable-side origin; pin/socket cups stay at the mating
+# face and do not move the part origin.
 ORIGIN_FROM_REAR_MM = 0.0
 
 FLAGNOTE_ANGLES_DEG = [0, 15, -15, 30, -30, 45, -45, 60, -60, -75, 75, -90, 90]
@@ -567,6 +571,58 @@ def flagnote_csys_children(profile, part_number, tab=None):
     return children
 
 
+def csys_6dof_mm(x_mm, y_mm, z_mm, rx=0.0, ry=0.0, rz=0.0):
+    """Child csys pose in inches/degrees relative to the STEP (part) origin.
+
+    (x, y, z) locates the child origin. (rx, ry, rz) are intrinsic XYZ Euler
+    rotations of the child axes, so the pose fully constrains 6 DOF.
+    """
+    return {
+        "x": round(float(x_mm) / MM_PER_IN, 4),
+        "y": round(float(y_mm) / MM_PER_IN, 4),
+        "z": round(float(z_mm) / MM_PER_IN, 4),
+        "rx": round(float(rx), 4),
+        "ry": round(float(ry), 4),
+        "rz": round(float(rz), 4),
+    }
+
+
+def step_origin_x_mm(_stations=None):
+    """X of the STEP origin in envelope coordinates.
+
+    Cable-side / drawing origin (x = 0). The bushing and cable entry sit
+    at the origin; +X is toward the mating face. Mating cups stay at the
+    front face — they do not move the part origin.
+    """
+    return float(ORIGIN_FROM_REAR_MM)
+
+
+def shift_stations(stations, origin_x):
+    return [(x - origin_x, radius) for x, radius in stations]
+
+
+def mate_csys_3d(variant):
+    """Mating face in the STEP frame (inches), identity orientation.
+
+    Origin is the cable-entry face; this output sits on the mating face.
+    +X continues toward the mate.
+    """
+    stations = profile_stations(variant["profile"])
+    origin_x = step_origin_x_mm(stations)
+    return csys_6dof_mm(stations[-1][0] - origin_x, 0.0, 0.0)
+
+
+def part_csys_children(variant):
+    """Named frames: ``3d-mate`` on the mating face, then polar flagnotes."""
+    children = {"3d-mate": mate_csys_3d(variant)}
+    children.update(
+        flagnote_csys_children(
+            variant["profile"], variant["mpn"], variant.get("tab")
+        )
+    )
+    return children
+
+
 def _csys_xy_px(csys):
     """Resolve a csys child to SVG px, matching harnice part.py ``csys_svg_xy``.
 
@@ -592,6 +648,8 @@ def _csys_overlay_svg(csys_children):
     arrow_size = 6
     lines = ['  <g id="output csys locations">']
     for csys_name, csys in csys_children.items():
+        if str(csys_name).startswith("3d-") or str(csys_name).endswith("_3d"):
+            continue
         x, y = _csys_xy_px(csys)
         rotation_rad = math.radians(float(csys.get("rotation", 0)))
         cos_r, sin_r = math.cos(rotation_rad), math.sin(rotation_rad)
@@ -1108,7 +1166,7 @@ def connector_svg(variant):
         for px, py in silhouette_closed_mm(profile_stations(profile), tab)[:-1]
     ]
     parts.append(_poly(outline, fill="none"))
-    csys = flagnote_csys_children(profile, part_number, tab)
+    csys = part_csys_children(variant)
 
     return f'''<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="400" height="400">
@@ -1122,9 +1180,13 @@ def connector_svg(variant):
 
 
 def write_part_step(rev_dir, variant):
+    """Write STEP with cable-side origin; cups stay at the mating face."""
     part_number = variant["mpn"]
     path = os.path.join(rev_dir, f"{part_number}-rev{REVISION}-model.step")
-    stations = profile_stations(variant["profile"])
+    stations = shift_stations(
+        profile_stations(variant["profile"]),
+        step_origin_x_mm(),
+    )
     tab = variant.get("tab")
     cavity = variant.get("cavity")
     window = tab if tab and tab.get("style") == "window" else None
@@ -1284,9 +1346,7 @@ def compile_part_attributes(variant):
     return {
         "tools": list(variant["tools"]),
         "build_notes": [],
-        "csys_children": flagnote_csys_children(
-            variant["profile"], variant["mpn"], variant.get("tab")
-        ),
+        "csys_children": part_csys_children(variant),
         "contacts": contacts,
         "mfg": MANUFACTURER,
         "family": variant["family"],
