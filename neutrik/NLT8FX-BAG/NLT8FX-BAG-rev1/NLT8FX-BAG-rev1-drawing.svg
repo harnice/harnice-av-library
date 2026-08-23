@@ -86,6 +86,13 @@
 <g id="NLT8FX-BAG-drawing-contents-end">
   </g>
   <g id="output csys locations">
+    <g id="3d-mate">
+      <circle cx="309.92" cy="-0.00" r="4" fill="black"/>
+      <line x1="309.92" y1="-0.00" x2="333.92" y2="-0.00" stroke="red" stroke-width="2"/>
+      <polygon points="333.92,-0.00 327.92,-3.00 327.92,3.00" fill="red"/>
+      <line x1="309.92" y1="-0.00" x2="309.92" y2="-24.00" stroke="green" stroke-width="2"/>
+      <polygon points="309.92,-24.00 306.92,-18.00 312.92,-18.00" fill="green"/>
+    </g>
     <g id="flagnote-1">
       <circle cx="597.92" cy="-0.00" r="4" fill="black"/>
       <line x1="597.92" y1="-0.00" x2="621.92" y2="-0.00" stroke="red" stroke-width="2"/>

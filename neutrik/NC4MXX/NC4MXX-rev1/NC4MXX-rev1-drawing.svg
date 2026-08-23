@@ -30,6 +30,13 @@
 <g id="NC4MXX-drawing-contents-end">
   </g>
   <g id="output csys locations">
+    <g id="3d-mate">
+      <circle cx="264.94" cy="-0.00" r="4" fill="black"/>
+      <line x1="264.94" y1="-0.00" x2="288.94" y2="-0.00" stroke="red" stroke-width="2"/>
+      <polygon points="288.94,-0.00 282.94,-3.00 282.94,3.00" fill="red"/>
+      <line x1="264.94" y1="-0.00" x2="264.94" y2="-24.00" stroke="green" stroke-width="2"/>
+      <polygon points="264.94,-24.00 261.94,-18.00 267.94,-18.00" fill="green"/>
+    </g>
     <g id="flagnote-1">
       <circle cx="552.94" cy="-0.00" r="4" fill="black"/>
       <line x1="552.94" y1="-0.00" x2="576.94" y2="-0.00" stroke="red" stroke-width="2"/>

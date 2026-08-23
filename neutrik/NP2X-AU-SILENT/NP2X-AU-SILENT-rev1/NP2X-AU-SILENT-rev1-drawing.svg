@@ -62,6 +62,13 @@
 <g id="NP2X-AU-SILENT-drawing-contents-end">
   </g>
   <g id="output csys locations">
+    <g id="3d-mate">
+      <circle cx="260.78" cy="-0.00" r="4" fill="black"/>
+      <line x1="260.78" y1="-0.00" x2="284.78" y2="-0.00" stroke="red" stroke-width="2"/>
+      <polygon points="284.78,-0.00 278.78,-3.00 278.78,3.00" fill="red"/>
+      <line x1="260.78" y1="-0.00" x2="260.78" y2="-24.00" stroke="green" stroke-width="2"/>
+      <polygon points="260.78,-24.00 257.78,-18.00 263.78,-18.00" fill="green"/>
+    </g>
     <g id="flagnote-1">
       <circle cx="548.78" cy="-0.00" r="4" fill="black"/>
       <line x1="548.78" y1="-0.00" x2="572.78" y2="-0.00" stroke="red" stroke-width="2"/>

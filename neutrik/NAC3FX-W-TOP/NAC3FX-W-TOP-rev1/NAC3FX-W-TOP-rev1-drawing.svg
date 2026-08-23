@@ -74,6 +74,13 @@
 <g id="NAC3FX-W-TOP-drawing-contents-end">
   </g>
   <g id="output csys locations">
+    <g id="3d-mate">
+      <circle cx="287.24" cy="-0.00" r="4" fill="black"/>
+      <line x1="287.24" y1="-0.00" x2="311.24" y2="-0.00" stroke="red" stroke-width="2"/>
+      <polygon points="311.24,-0.00 305.24,-3.00 305.24,3.00" fill="red"/>
+      <line x1="287.24" y1="-0.00" x2="287.24" y2="-24.00" stroke="green" stroke-width="2"/>
+      <polygon points="287.24,-24.00 284.24,-18.00 290.24,-18.00" fill="green"/>
+    </g>
     <g id="flagnote-1">
       <circle cx="575.24" cy="-0.00" r="4" fill="black"/>
       <line x1="575.24" y1="-0.00" x2="599.24" y2="-0.00" stroke="red" stroke-width="2"/>
