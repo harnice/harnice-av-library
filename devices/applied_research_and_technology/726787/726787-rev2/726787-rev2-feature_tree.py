@@ -42,19 +42,19 @@ for connector_name in ["in1", "in2", "out1", "out2"]:
         signals_list.append(
             channel_id=channel_name,
             signal=signal,
-            connector_name=connector_name,
+            connector_id=connector_name,
             cavity=xlr_pinout.get(signal),
             channel_type=channel_type,
-            connector_mpn=connector_mpn
+            device_connector_mpn=connector_mpn
         )
 
     # Add shield row
     signals_list.append(
         channel_id=f"{channel_name}-shield",
         signal="chassis",
-        connector_name=connector_name,
+        connector_id=connector_name,
         cavity=xlr_pinout.get("chassis"),
         channel_type=ch_type_ids["chassis"],
-        connector_mpn=connector_mpn
+        device_connector_mpn=connector_mpn
     )
 

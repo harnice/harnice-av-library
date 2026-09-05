@@ -39,23 +39,39 @@ for channel in range(8):
     for signal in chtype.signals(ch_type_ids["A"]["balanced audio mic level in"]):
         signals_list.append(
             channel_id=channel_name,
+            repeat_channel_id="1",
             signal=signal,
-            A_cavity=cavity_number[channel_name][signal],
-            A_connector_mpn=cn_mpns["A"],
-            A_channel_type=ch_type_ids["A"]["balanced audio mic level in"],
-            B_cavity=cavity_number[channel_name][signal],
-            B_connector_mpn=cn_mpns["B"],
-            B_channel_type=ch_type_ids["B"]["balanced audio mic level out"],
+            cavity=cavity_number[channel_name][signal],
+            connector_id="A",
+            harness_connector_mpn=cn_mpns["A"],
+            channel_type=ch_type_ids["A"]["balanced audio mic level in"],
+        )
+        signals_list.append(
+            channel_id=channel_name,
+            repeat_channel_id="2",
+            signal=signal,
+            cavity=cavity_number[channel_name][signal],
+            connector_id="B",
+            harness_connector_mpn=cn_mpns["B"],
+            channel_type=ch_type_ids["B"]["balanced audio mic level out"],
         )
 
     for signal in chtype.signals(ch_type_ids["A"]["chassis"]):
         signals_list.append(
             channel_id=f"{channel_name}-shield",
+            repeat_channel_id="1",
             signal=signal,
-            A_cavity=cavity_number[channel_name][signal],
-            A_connector_mpn=cn_mpns["A"],
-            A_channel_type=ch_type_ids["A"]["chassis"],
-            B_cavity=cavity_number[channel_name][signal],
-            B_connector_mpn=cn_mpns["B"],
-            B_channel_type=ch_type_ids["B"]["chassis"],
+            cavity=cavity_number[channel_name][signal],
+            connector_id="A",
+            harness_connector_mpn=cn_mpns["A"],
+            channel_type=ch_type_ids["A"]["chassis"],
+        )
+        signals_list.append(
+            channel_id=f"{channel_name}-shield",
+            repeat_channel_id="2",
+            signal=signal,
+            cavity=cavity_number[channel_name][signal],
+            connector_id="B",
+            harness_connector_mpn=cn_mpns["B"],
+            channel_type=ch_type_ids["B"]["chassis"],
         )

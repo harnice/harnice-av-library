@@ -1,25 +1,49 @@
-channel_id	signal	A_cavity	B_cavity	A_connector_mpn	A_channel_type	B_connector_mpn	B_channel_type
-ch0	pos	24	24	DB25F	(1, 'https://github.com/harnice/harnice')	DB25M	(2, 'https://github.com/harnice/harnice')
-ch0	neg	12	12	DB25F	(1, 'https://github.com/harnice/harnice')	DB25M	(2, 'https://github.com/harnice/harnice')
-ch0-shield	chassis	25	25	DB25F	(5, 'https://github.com/harnice/harnice')	DB25M	(5, 'https://github.com/harnice/harnice')
-ch1	pos	10	10	DB25F	(1, 'https://github.com/harnice/harnice')	DB25M	(2, 'https://github.com/harnice/harnice')
-ch1	neg	23	23	DB25F	(1, 'https://github.com/harnice/harnice')	DB25M	(2, 'https://github.com/harnice/harnice')
-ch1-shield	chassis	11	11	DB25F	(5, 'https://github.com/harnice/harnice')	DB25M	(5, 'https://github.com/harnice/harnice')
-ch2	pos	21	21	DB25F	(1, 'https://github.com/harnice/harnice')	DB25M	(2, 'https://github.com/harnice/harnice')
-ch2	neg	9	9	DB25F	(1, 'https://github.com/harnice/harnice')	DB25M	(2, 'https://github.com/harnice/harnice')
-ch2-shield	chassis	22	22	DB25F	(5, 'https://github.com/harnice/harnice')	DB25M	(5, 'https://github.com/harnice/harnice')
-ch3	pos	7	7	DB25F	(1, 'https://github.com/harnice/harnice')	DB25M	(2, 'https://github.com/harnice/harnice')
-ch3	neg	20	20	DB25F	(1, 'https://github.com/harnice/harnice')	DB25M	(2, 'https://github.com/harnice/harnice')
-ch3-shield	chassis	8	8	DB25F	(5, 'https://github.com/harnice/harnice')	DB25M	(5, 'https://github.com/harnice/harnice')
-ch4	pos	18	18	DB25F	(1, 'https://github.com/harnice/harnice')	DB25M	(2, 'https://github.com/harnice/harnice')
-ch4	neg	6	6	DB25F	(1, 'https://github.com/harnice/harnice')	DB25M	(2, 'https://github.com/harnice/harnice')
-ch4-shield	chassis	19	19	DB25F	(5, 'https://github.com/harnice/harnice')	DB25M	(5, 'https://github.com/harnice/harnice')
-ch5	pos	4	4	DB25F	(1, 'https://github.com/harnice/harnice')	DB25M	(2, 'https://github.com/harnice/harnice')
-ch5	neg	17	17	DB25F	(1, 'https://github.com/harnice/harnice')	DB25M	(2, 'https://github.com/harnice/harnice')
-ch5-shield	chassis	5	5	DB25F	(5, 'https://github.com/harnice/harnice')	DB25M	(5, 'https://github.com/harnice/harnice')
-ch6	pos	15	15	DB25F	(1, 'https://github.com/harnice/harnice')	DB25M	(2, 'https://github.com/harnice/harnice')
-ch6	neg	3	3	DB25F	(1, 'https://github.com/harnice/harnice')	DB25M	(2, 'https://github.com/harnice/harnice')
-ch6-shield	chassis	16	16	DB25F	(5, 'https://github.com/harnice/harnice')	DB25M	(5, 'https://github.com/harnice/harnice')
-ch7	pos	1	1	DB25F	(1, 'https://github.com/harnice/harnice')	DB25M	(2, 'https://github.com/harnice/harnice')
-ch7	neg	14	14	DB25F	(1, 'https://github.com/harnice/harnice')	DB25M	(2, 'https://github.com/harnice/harnice')
-ch7-shield	chassis	2	2	DB25F	(5, 'https://github.com/harnice/harnice')	DB25M	(5, 'https://github.com/harnice/harnice')
+channel_id	repeat_channel_id	channel_type	signal	cavity	connector_id	device_connector_mpn	harness_connector_mpn
+ch0	1	(1, 'https://github.com/harnice/harnice')	pos	24	A		DB25F
+ch0	2	(2, 'https://github.com/harnice/harnice')	pos	24	B		DB25M
+ch0	1	(1, 'https://github.com/harnice/harnice')	neg	12	A		DB25F
+ch0	2	(2, 'https://github.com/harnice/harnice')	neg	12	B		DB25M
+ch0-shield	1	(5, 'https://github.com/harnice/harnice')	chassis	25	A		DB25F
+ch0-shield	2	(5, 'https://github.com/harnice/harnice')	chassis	25	B		DB25M
+ch1	1	(1, 'https://github.com/harnice/harnice')	pos	10	A		DB25F
+ch1	2	(2, 'https://github.com/harnice/harnice')	pos	10	B		DB25M
+ch1	1	(1, 'https://github.com/harnice/harnice')	neg	23	A		DB25F
+ch1	2	(2, 'https://github.com/harnice/harnice')	neg	23	B		DB25M
+ch1-shield	1	(5, 'https://github.com/harnice/harnice')	chassis	11	A		DB25F
+ch1-shield	2	(5, 'https://github.com/harnice/harnice')	chassis	11	B		DB25M
+ch2	1	(1, 'https://github.com/harnice/harnice')	pos	21	A		DB25F
+ch2	2	(2, 'https://github.com/harnice/harnice')	pos	21	B		DB25M
+ch2	1	(1, 'https://github.com/harnice/harnice')	neg	9	A		DB25F
+ch2	2	(2, 'https://github.com/harnice/harnice')	neg	9	B		DB25M
+ch2-shield	1	(5, 'https://github.com/harnice/harnice')	chassis	22	A		DB25F
+ch2-shield	2	(5, 'https://github.com/harnice/harnice')	chassis	22	B		DB25M
+ch3	1	(1, 'https://github.com/harnice/harnice')	pos	7	A		DB25F
+ch3	2	(2, 'https://github.com/harnice/harnice')	pos	7	B		DB25M
+ch3	1	(1, 'https://github.com/harnice/harnice')	neg	20	A		DB25F
+ch3	2	(2, 'https://github.com/harnice/harnice')	neg	20	B		DB25M
+ch3-shield	1	(5, 'https://github.com/harnice/harnice')	chassis	8	A		DB25F
+ch3-shield	2	(5, 'https://github.com/harnice/harnice')	chassis	8	B		DB25M
+ch4	1	(1, 'https://github.com/harnice/harnice')	pos	18	A		DB25F
+ch4	2	(2, 'https://github.com/harnice/harnice')	pos	18	B		DB25M
+ch4	1	(1, 'https://github.com/harnice/harnice')	neg	6	A		DB25F
+ch4	2	(2, 'https://github.com/harnice/harnice')	neg	6	B		DB25M
+ch4-shield	1	(5, 'https://github.com/harnice/harnice')	chassis	19	A		DB25F
+ch4-shield	2	(5, 'https://github.com/harnice/harnice')	chassis	19	B		DB25M
+ch5	1	(1, 'https://github.com/harnice/harnice')	pos	4	A		DB25F
+ch5	2	(2, 'https://github.com/harnice/harnice')	pos	4	B		DB25M
+ch5	1	(1, 'https://github.com/harnice/harnice')	neg	17	A		DB25F
+ch5	2	(2, 'https://github.com/harnice/harnice')	neg	17	B		DB25M
+ch5-shield	1	(5, 'https://github.com/harnice/harnice')	chassis	5	A		DB25F
+ch5-shield	2	(5, 'https://github.com/harnice/harnice')	chassis	5	B		DB25M
+ch6	1	(1, 'https://github.com/harnice/harnice')	pos	15	A		DB25F
+ch6	2	(2, 'https://github.com/harnice/harnice')	pos	15	B		DB25M
+ch6	1	(1, 'https://github.com/harnice/harnice')	neg	3	A		DB25F
+ch6	2	(2, 'https://github.com/harnice/harnice')	neg	3	B		DB25M
+ch6-shield	1	(5, 'https://github.com/harnice/harnice')	chassis	16	A		DB25F
+ch6-shield	2	(5, 'https://github.com/harnice/harnice')	chassis	16	B		DB25M
+ch7	1	(1, 'https://github.com/harnice/harnice')	pos	1	A		DB25F
+ch7	2	(2, 'https://github.com/harnice/harnice')	pos	1	B		DB25M
+ch7	1	(1, 'https://github.com/harnice/harnice')	neg	14	A		DB25F
+ch7	2	(2, 'https://github.com/harnice/harnice')	neg	14	B		DB25M
+ch7-shield	1	(5, 'https://github.com/harnice/harnice')	chassis	2	A		DB25F
+ch7-shield	2	(5, 'https://github.com/harnice/harnice')	chassis	2	B		DB25M
