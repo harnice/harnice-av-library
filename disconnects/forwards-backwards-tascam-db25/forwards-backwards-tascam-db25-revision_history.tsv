@@ -1,3 +1,2 @@
-project_type	mfg	pn	desc	rev	status	releaseticket	library_repo	library_subpath	datestarted	datemodified	datereleased	git_hash_of_harnice_src	drawnby	checkedby	revisionupdates	affectedinstances
-disconnect		forwards-backwards-tascam-db25	TASCAM DB25 8CH PINOUT, 4 IN 4 OUT	1			https://github.com/harnice/harnice-av-library		6/14/26	7/31/26		4684717d715a313bc8b967460b9f78e06ad926a8	K SHUTT		INITIAL RELEASE	
-disconnect		forwards-backwards-tascam-db25	TASCAM DB25 8CH PINOUT, 4 IN 4 OUT	2			https://github.com/harnice/harnice-av-library		6/14/26	8/1/26		48af76a6d24c32fbad0ae0e8d146be8ef3f93895	K SHUTT		NEW REVISION	
+project_type	mfg	pn	desc	rev	status	releaseticket	library_repo	library_subpath	source_part_number	source_revision	source_lib_repo	source_subpath	source_refdes	datestarted	datemodified	datereleased	git_hash_of_harnice_src	drawnby	checkedby	revisionupdates	affectedinstances
+device		forwards-backwards-tascam-db25	TASCAM DB25 8CH PINOUT, 4 IN 4 OUT	1			https://github.com/harnice/harnice-av-library	disconnects/						6/14/26	9/10/26		35e4fd0889eb8a2fca9ef6905697defd267cd76b	K SHUTT		INITIAL RELEASE	

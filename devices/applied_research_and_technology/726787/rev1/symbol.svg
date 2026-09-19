@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-35 -30 210 140" width="210" height="140">
+  <g id="726787-rev1-contents-start">
+    <rect x="0" y="0" width="140" height="80" fill="#2d3874" stroke="#000000" class="" id="sde-1785551118881-flwudbz"/>
+    <circle class="connector" data-pin-name="in1" cx="0" cy="40" r="0.1" fill="black" style="" id="sde-1785551118881-9ht203r"/>
+    <circle class="connector" data-pin-name="in2" cx="0" cy="70" r="0.1" fill="black" style="" id="sde-1785551118881-avnooy9"/>
+    <circle class="connector" data-pin-name="out1" cx="140" cy="40" r="0.1" fill="black" style="" id="sde-1785551118881-7rkkwdo"/>
+    <circle class="connector" data-pin-name="out2" cx="140" cy="70" r="0.1" fill="black" style="" id="sde-1785551118881-w68wcfw"/>
+    <text x="70" y="10" font-family="Arial, Helvetica, sans-serif" fill="#f8f7f4" font-size="8" class="" text-anchor="middle" dominant-baseline="middle" id="sde-1785551118881-y295try">2ch PREAMP</text>
+    <text x="10" y="40" font-family="Arial, Helvetica, sans-serif" fill="#ededed" font-size="8" class="" text-anchor="start" dominant-baseline="middle" id="sde-1785551118881-npbm3cs">&lt; in 1</text>
+    <text x="10" y="70" font-family="Arial, Helvetica, sans-serif" fill="#ededed" font-size="8" class="" text-anchor="start" dominant-baseline="middle" id="sde-1785551118881-lbf6r8l">&lt; in 2</text>
+    <text x="130" y="70" font-family="Arial, Helvetica, sans-serif" fill="#ededed" font-size="8" class="" text-anchor="end" dominant-baseline="middle" id="sde-1785551118881-z69whj1">out 2 &gt;</text>
+    <text x="130" y="40" font-family="Arial, Helvetica, sans-serif" fill="#ededed" font-size="8" class="" text-anchor="end" dominant-baseline="middle" id="sde-1785551118881-enfjqb4">out 1 &gt;</text>
+    <text class="attribute text" x="70" y="30" font-family="Arial, Helvetica, sans-serif" fill="#f0f5e8" font-size="8" data-attribute-name="REFDES" text-anchor="middle" id="sde-1785551118881-v9z88n9">{REFDES}</text>
+    <text x="40" y="50" font-family="Arial, Helvetica, sans-serif" fill="#000000" font-size="12" id="sde-1785551124385-43rjj7g">volume:</text>
+    <text x="40" y="70" font-family="Arial, Helvetica, sans-serif" fill="#000000" font-size="12" id="sde-1785551130636-fygg2mf" class="">volume:</text>
+    <text class="attribute text" x="90" y="50" font-family="Arial, Helvetica, sans-serif" fill="#000000" font-size="12" data-attribute-name="ch1_vol" id="sde-1785551138618-qwl4vt1">0</text>
+    <text class="attribute text selected" x="90" y="70" font-family="Arial, Helvetica, sans-serif" fill="#000000" font-size="12" data-attribute-name="ch2_vol" id="sde-1785551140018-gb28e7r">0</text>
+  </g>
+  <g id="726787-rev1-contents-end"></g>
+</svg>

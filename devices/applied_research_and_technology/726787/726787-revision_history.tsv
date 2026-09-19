@@ -1,3 +1,2 @@
-project_type	mfg	pn	desc	rev	status	releaseticket	library_repo	library_subpath	datestarted	datemodified	datereleased	git_hash_of_harnice_src	drawnby	checkedby	revisionupdates	affectedinstances
-device	APPLIED RESEARCH AND TECHNOLOGY	726787	PREAMP, 2CH	1	obsolete		https://github.com/harnice/harnice	pro_audio/applied_research_and_technology/	9/21/25	11/4/25		9d1e159c4f8f2cb11f8dd46b96fcbaae2b6bad0b			INITIAL RELEASE	
-device	APPLIED RESEARCH AND TECHNOLOGY	726787	PREAMP, 2CH	2			https://github.com/harnice/harnice	pro_audio/applied_research_and_technology/	4/19/26	8/2/26		053ad2a1774d1e6d3e3d09590d49bde0c8bee3f5	K SHUTT		ADDED BLOCK DIAGRAM SYMBOL	
+project_type	mfg	pn	desc	rev	status	releaseticket	library_repo	library_subpath	source_part_number	source_revision	source_lib_repo	source_subpath	source_refdes	datestarted	datemodified	datereleased	git_hash_of_harnice_src	drawnby	checkedby	revisionupdates	affectedinstances
+device	APPLIED RESEARCH AND TECHNOLOGY	726787	PREAMP, 2CH	1										4/19/26	9/10/26		35e4fd0889eb8a2fca9ef6905697defd267cd76b	K SHUTT		ADDED BLOCK DIAGRAM SYMBOL	

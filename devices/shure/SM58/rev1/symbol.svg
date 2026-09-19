@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-30 -30 135 80" width="135" height="80">
+  <g id="SM58-rev1-contents-start">
+    <rect x="0" y="0" width="70" height="20" fill="#c38989" stroke="#000000" class="" id="sde-1776049933017-y55htw2"/>
+    <circle class="connector" data-pin-name="out1" cx="70" cy="10" r="0.1" fill="black" style="" id="sde-1776049933017-3xo3ys0"/>
+    <line x1="70" y1="0" x2="60" y2="10" stroke="#000000" id="sde-1776049933017-6vhnel6"/>
+    <line x1="70" y1="20" x2="60" y2="10" stroke="#000000" id="sde-1776049933017-of5jmfj"/>
+    <text x="22.081405639648438" y="15.26125955581665" font-family="Arial, Helvetica, sans-serif" fill="#000000" font-size="5" class="" dominant-baseline="middle" id="sde-1776049933017-ot1cm9c">SM58</text>
+    <text class="attribute text" x="5.845844268798828" y="5.775113582611084" font-family="Arial, Helvetica, sans-serif" fill="#000000" font-size="5" data-attribute-name="REFDES" dominant-baseline="middle" id="sde-1776049933017-oz8xsjv">{REFDES}</text>
+  </g>
+  <g id="SM58-rev1-contents-end"></g>
+</svg>

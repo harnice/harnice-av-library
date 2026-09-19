@@ -1,4 +1,0 @@
-channel_id	repeat_channel_id	channel_type	signal	cavity	connector_id	device_connector_mpn	harness_connector_mpn
-out1		(2, 'https://github.com/harnice/harnice')	pos	2	out1	XLR3M	
-out1		(2, 'https://github.com/harnice/harnice')	neg	3	out1	XLR3M	
-out1-shield		(5, 'https://github.com/harnice/harnice')	chassis	1	out1	XLR3M	
