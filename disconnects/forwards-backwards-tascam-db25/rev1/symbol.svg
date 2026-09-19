@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-35 -40.109375 125.234375 80.109375" width="125.234375" height="80.109375">
+  <g id="forwards-backwards-tascam-db25-rev1-contents-start">
+    <path class="" transform="translate(0,0)" d="m10 10a10 10 0 0 1-8.6603-5 10 10 0 0 1 0-10 10 10 0 0 1 8.6603-5v10z" fill="#6f6f6f" stroke="#000" style="fill:#40874e;fill-opacity:1" id="sde-1789092019203-uyl52oa"/>
+    <path class="" transform="translate(0,0)" d="m20-10a10 10 0 0 1 10 10 10 10 0 0 1-10 10v-10z" fill="#6f6f6f" stroke="#000" style="fill:#8f4f4f;fill-opacity:1" id="sde-1789092019203-9vzranz"/>
+    <circle class="connector" r="0.1" style="" data-pin-name="A" fill="black" id="sde-1789092019203-5o41drn"/>
+    <circle class="connector" cx="30" r="0.1" style="" data-pin-name="B" fill="black" id="sde-1789092019203-8kjvfyy"/>
+    <line class="" x1="12.5" x2="20" stroke="#000" stroke-dasharray="1.26490998,1.26490998" stroke-width="1.2649" y1="0" y2="0" id="sde-1789092019203-ylhw1p8"/>
+    <text x="5.473440647125244" y="0.4157044291496277" font-family="Arial, Helvetica, sans-serif" fill="#000000" font-size="8" class="" text-anchor="middle" dominant-baseline="middle" id="sde-1789092019203-x62o4qj">A</text>
+    <text x="24.226328372955322" y="0.23094648122787476" font-family="Arial, Helvetica, sans-serif" fill="#000000" font-size="8" class="" text-anchor="middle" dominant-baseline="middle" id="sde-1789092019203-j0smd7p">B</text>
+    <text class="attribute text" x="31.884552001953125" y="-9.010608673095703" font-family="Arial, Helvetica, sans-serif" fill="#000000" font-size="6" data-attribute-name="REFDES" dominant-baseline="hanging" id="sde-1789092019203-743zmds">{REFDES}</text>
+  </g>
+  <g id="forwards-backwards-tascam-db25-rev1-contents-end"></g>
+</svg>

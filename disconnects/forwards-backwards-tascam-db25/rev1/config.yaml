@@ -1,0 +1,235 @@
+# ============================================================================
+# 1. REFERENCE — every field type + its typical rules
+# Copy whichever block you need into `fields:` in the DEFINITION section.
+# Every block includes `default:` — pick the empty/neutral value for the
+# type unless you want the field pre-filled with something specific.
+# ============================================================================
+ 
+# --- short text -------------------------------------------------------------
+# - id: "device_name"
+#   type: text
+#   label: "Device name"
+#   required: true
+#   default: ""
+#   validation:
+#     minLength: 2
+#     maxLength: 60
+#     pattern: "^[A-Za-z0-9\\- ]+$"       # optional regex
+ 
+# --- long text ---------------------------------------------------------------
+# - id: "install_notes"
+#   type: textarea
+#   label: "Installation notes"
+#   default: ""
+#   validation:
+#     maxLength: 500
+ 
+# --- url ---------------------------------------------------------------
+# - id: "firmware_url"
+#   type: url
+#   label: "Firmware update URL"
+#   default: ""
+#   validation:
+#     format: uri
+ 
+# --- number ---------------------------------------------------------------
+# - id: "port"
+#   type: number
+#   label: "Communication port"
+#   default: 502
+#   validation:
+#     minimum: 1
+#     maximum: 65535
+#     multipleOf: 1        # step
+ 
+# --- ip address ---------------------------------------------------------------
+# - id: "device_ip"
+#   type: ip_addr
+#   label: "Device IP address"
+#   default: ""
+#   validation:
+#     format: ipv4          # or: ipv6
+#     pattern: "..."        # optional additional regex constraint
+ 
+# --- mac address ---------------------------------------------------------------
+# - id: "device_mac"
+#   type: mac_addr
+#   label: "Device MAC address"
+#   default: ""
+#   validation:
+#     format: mac
+
+# --- channel type ---------------------------------------------------------------
+# - id: "channel_type"
+#   type: channel_type
+#   label: "Channel type"
+#   required: true
+#   default: "(1, 'https://github.com/harnice/harnice')"
+#   validation:
+#     format: channel_type
+ 
+# --- single choice, dropdown ---------------------------------------------------------------
+# - id: "input_type"
+#   type: select
+#   label: "Input type"
+#   required: true
+#   default: "xlr"          # must be one of the option values below
+#   options:
+#     - value: "xlr"
+#       label: "XLR (Balanced)"
+#     - value: "trs"
+#       label: "TRS (Balanced)"
+#     - value: "rca"
+#       label: "RCA (Unbalanced)"
+ 
+# --- single choice, radio buttons ---------------------------------------------------------------
+# - id: "state"
+#   type: radio
+#   label: "Device state"
+#   default: "standby"
+#   options:
+#     - value: "active"
+#       label: "Active"
+#     - value: "standby"
+#       label: "Standby"
+#     - value: "disabled"
+#       label: "Disabled"
+ 
+# --- multiple choice, checkboxes ---------------------------------------------------------------
+# - id: "enabled_outputs"
+#   type: multiselect
+#   label: "Enabled outputs"
+#   default: []
+#   options:
+#     - value: "main"
+#       label: "Main"
+#     - value: "monitor"
+#       label: "Monitor"
+#     - value: "aux"
+#       label: "Aux"
+#   validation:
+#     minItems: 1
+#     maxItems: 3
+ 
+# --- yes/no toggle ---------------------------------------------------------------
+# - id: "phantom_power"
+#   type: boolean
+#   label: "48V phantom power"
+#   default: false
+ 
+# --- linear scale / slider (e.g. gain, level, sensitivity) ---------------------------------------------------------------
+# - id: "gain"
+#   type: slider              # or: scale / rating
+#   label: "Input gain (dB)"
+#   default: 0                # must fall within min/max below
+#   validation:
+#     minimum: -12
+#     maximum: 12
+#     multipleOf: 0.5
+ 
+# --- conditional field (only show based on a previous answer) ---------------------------------------------------------------
+# add this block under any field above:
+#   show_if:
+#     field: "other_field_id"
+#     operator: equals          # equals | not_equals | contains | greater_than |
+#                                # less_than | is_empty | is_not_empty
+#     value: "some_answer"
+ 
+ 
+# ============================================================================
+# 2. EXAMPLE — a full worked form (electrical device setup), for reference only
+# ============================================================================
+ 
+# fields:
+#
+#   - id: "device_name"
+#     type: text
+#     label: "Device name"
+#     required: true
+#     default: ""
+#     validation:
+#       minLength: 2
+#       maxLength: 60
+#
+#   - id: "device_ip"
+#     type: ip_addr
+#     label: "Device IP address"
+#     required: true
+#     default: ""
+#     validation:
+#       format: ipv4
+#
+#   - id: "device_subnet"
+#     type: ip_addr
+#     label: "Subnet mask"
+#     required: true
+#     default: "255.255.255.0"
+#     validation:
+#       format: ipv4
+#
+#   - id: "device_mac"
+#     type: mac_addr
+#     label: "Device MAC address"
+#     required: false
+#     default: ""
+#     validation:
+#       format: mac
+#
+#   - id: "port"
+#     type: number
+#     label: "Communication port"
+#     required: true
+#     default: 502
+#     validation:
+#       minimum: 1
+#       maximum: 65535
+#       multipleOf: 1
+#
+#   - id: "input_type"
+#     type: select
+#     label: "Input type"
+#     required: true
+#     default: "xlr"
+#     options:
+#       - value: "xlr"
+#         label: "XLR (Balanced)"
+#       - value: "trs"
+#         label: "TRS (Balanced)"
+#       - value: "rca"
+#         label: "RCA (Unbalanced)"
+#       - value: "optical"
+#         label: "Optical (S/PDIF)"
+#
+#   - id: "gain"
+#     type: slider
+#     label: "Input gain (dB)"
+#     required: false
+#     default: 0
+#     validation:
+#       minimum: -12
+#       maximum: 12
+#       multipleOf: 0.5
+#
+#   - id: "phantom_power"
+#     type: boolean
+#     label: "48V phantom power"
+#     required: false
+#     default: false
+#     # only relevant for balanced mic-level inputs
+#     show_if:
+#       field: "input_type"
+#       operator: equals
+#       value: "xlr"
+#
+#   - id: "state"
+#     type: select
+#     label: "Device state"
+#     required: true
+#     default: "standby"
+#     options:
+#       - value: "active"
+#         label: "Active"
+#       - value: "standby"
+#         label: "Standby"
+#       - value: "disabled"
+#         label: "Disabled"
