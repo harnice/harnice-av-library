@@ -64,10 +64,10 @@ ETHERCON_SOURCE = (
     "https://www.neutrik.com/media/10044/download/Drawing%20NE8MX6.pdf"
 )
 ETHERCON_CATALOG = (
-    ("NE8MX", "", "carrier for pre-assembled RJ45 plugs", [4.5, 8.0], "CAT5e", []),
-    ("NE8MX-B", "B", "carrier for pre-assembled RJ45 plugs", [4.5, 8.0], "CAT5e", []),
+    ("NE8MX_A", "", "carrier for pre-assembled RJ45 plugs", [4.5, 8.0], "CAT5e", []),
+    ("NE8MX-B_A", "B", "carrier for pre-assembled RJ45 plugs", [4.5, 8.0], "CAT5e", []),
     (
-        "NE8MC",
+        "NE8MC_A",
         "",
         "CAT5e cable connector with RJ45 plug",
         [5.0, 8.0],
@@ -75,7 +75,7 @@ ETHERCON_CATALOG = (
         ["RJ45 crimp tool"],
     ),
     (
-        "NE8MC-B",
+        "NE8MC-B_A",
         "B",
         "CAT5e cable connector with RJ45 plug",
         [5.0, 8.0],
@@ -83,7 +83,7 @@ ETHERCON_CATALOG = (
         ["RJ45 crimp tool"],
     ),
     (
-        "NE8MX6",
+        "NE8MX6_A",
         "",
         "CAT6A self-termination cable connector, insulation diameter > 1.1 mm",
         [7.0, 9.5],
@@ -91,7 +91,7 @@ ETHERCON_CATALOG = (
         ["Cable stripping tool", "Flush cutter"],
     ),
     (
-        "NE8MX6-B",
+        "NE8MX6-B_A",
         "B",
         "CAT6A self-termination cable connector, insulation diameter > 1.1 mm",
         [7.0, 9.5],
@@ -99,7 +99,7 @@ ETHERCON_CATALOG = (
         ["Cable stripping tool", "Flush cutter"],
     ),
     (
-        "NE8MX6-T",
+        "NE8MX6-T_A",
         "",
         "CAT6A self-termination cable connector, insulation diameter <= 1.1 mm",
         [7.0, 9.5],
@@ -116,7 +116,7 @@ POWERCON_SOURCE = (
 )
 POWERCON_CATALOG = (
     (
-        "NAC3FCA",
+        "NAC3FCA_A",
         "powerCON 20 A",
         "female",
         "blue",
@@ -125,7 +125,7 @@ POWERCON_CATALOG = (
         False,
     ),
     (
-        "NAC3FCB",
+        "NAC3FCB_A",
         "powerCON 20 A",
         "female",
         "grey",
@@ -134,7 +134,7 @@ POWERCON_CATALOG = (
         False,
     ),
     (
-        "NAC3FX-W",
+        "NAC3FX-W_A",
         "powerCON TRUE1",
         "female",
         "black",
@@ -143,7 +143,7 @@ POWERCON_CATALOG = (
         True,
     ),
     (
-        "NAC3MX-W",
+        "NAC3MX-W_A",
         "powerCON TRUE1",
         "male",
         "black",
@@ -152,7 +152,7 @@ POWERCON_CATALOG = (
         True,
     ),
     (
-        "NAC3FX-W-TOP",
+        "NAC3FX-W-TOP_A",
         "powerCON TRUE1 TOP",
         "female",
         "black",
@@ -161,7 +161,7 @@ POWERCON_CATALOG = (
         True,
     ),
     (
-        "NAC3MX-W-TOP",
+        "NAC3MX-W-TOP_A",
         "powerCON TRUE1 TOP",
         "male",
         "black",
@@ -170,7 +170,7 @@ POWERCON_CATALOG = (
         True,
     ),
     (
-        "NAC3FX-W-TOP-L",
+        "NAC3FX-W-TOP-L_A",
         "powerCON TRUE1 TOP Large",
         "female",
         "black",
@@ -179,7 +179,7 @@ POWERCON_CATALOG = (
         True,
     ),
     (
-        "NAC3MX-W-TOP-L",
+        "NAC3MX-W-TOP-L_A",
         "powerCON TRUE1 TOP Large",
         "male",
         "black",
@@ -199,7 +199,7 @@ SPEAKON_SOURCE = (
 )
 SPEAKON_CATALOG = (
     (
-        "NL2FX",
+        "NL2FX_A",
         "X",
         2,
         "female",
@@ -213,7 +213,7 @@ SPEAKON_CATALOG = (
         "plastic",
     ),
     (
-        "NL4FX",
+        "NL4FX_A",
         "X",
         4,
         "female",
@@ -227,7 +227,7 @@ SPEAKON_CATALOG = (
         "plastic",
     ),
     (
-        "NL4FX-2",
+        "NL4FX-2_A",
         "X",
         4,
         "female",
@@ -241,7 +241,7 @@ SPEAKON_CATALOG = (
         "plastic",
     ),
     (
-        "NL4FX-4",
+        "NL4FX-4_A",
         "X",
         4,
         "female",
@@ -255,7 +255,7 @@ SPEAKON_CATALOG = (
         "plastic",
     ),
     (
-        "NL4FX-5",
+        "NL4FX-5_A",
         "X",
         4,
         "female",
@@ -269,7 +269,7 @@ SPEAKON_CATALOG = (
         "plastic",
     ),
     (
-        "NL4FX-9",
+        "NL4FX-9_A",
         "X",
         4,
         "female",
@@ -283,7 +283,7 @@ SPEAKON_CATALOG = (
         "plastic",
     ),
     (
-        "NL4FC",
+        "NL4FC_A",
         "FC",
         4,
         "female",
@@ -297,7 +297,7 @@ SPEAKON_CATALOG = (
         "plastic",
     ),
     (
-        "NL8FC",
+        "NL8FC_A",
         "FC",
         8,
         "female",
@@ -311,7 +311,7 @@ SPEAKON_CATALOG = (
         "plastic",
     ),
     (
-        "NLT4FX",
+        "NLT4FX_A",
         "STX",
         4,
         "female",
@@ -325,7 +325,7 @@ SPEAKON_CATALOG = (
         None,
     ),
     (
-        "NLT4FX-BAG",
+        "NLT4FX-BAG_A",
         "STX",
         4,
         "female",
@@ -339,7 +339,7 @@ SPEAKON_CATALOG = (
         None,
     ),
     (
-        "NLT4MX",
+        "NLT4MX_A",
         "STX",
         4,
         "male",
@@ -353,7 +353,7 @@ SPEAKON_CATALOG = (
         None,
     ),
     (
-        "NLT4MX-BAG",
+        "NLT4MX-BAG_A",
         "STX",
         4,
         "male",
@@ -367,7 +367,7 @@ SPEAKON_CATALOG = (
         None,
     ),
     (
-        "NLT8FX",
+        "NLT8FX_A",
         "STX",
         8,
         "female",
@@ -381,7 +381,7 @@ SPEAKON_CATALOG = (
         None,
     ),
     (
-        "NLT8FX-BAG",
+        "NLT8FX-BAG_A",
         "STX",
         8,
         "female",
@@ -395,7 +395,7 @@ SPEAKON_CATALOG = (
         None,
     ),
     (
-        "NLT8MX-BAG",
+        "NLT8MX-BAG_A",
         "STX",
         8,
         "male",
@@ -577,7 +577,7 @@ def _phone_configurations():
         )
     catalog.append(
         (
-            "NP2X-AU-SILENT",
+            "NP2X-AU-SILENT_A",
             "silentPLUG",
             2,
             "",
@@ -827,9 +827,9 @@ def find_mating_connector(
     Return the opposite-gender cable connector of the same series / finish
     when that mate is sold in this library.
 
-    XLR XX: NC3FXX-B -> NC3MXX-B
-    powerCON TRUE1: NAC3FX-W-TOP -> NAC3MX-W-TOP
-    speakON STX: NLT4FX-BAG -> NLT4MX-BAG
+    XLR XX: NC3FXX-B_A -> NC3MXX-B_A
+    powerCON TRUE1: NAC3FX-W-TOP_A -> NAC3MX-W-TOP_A
+    speakON STX: NLT4FX-BAG_A -> NLT4MX-BAG_A
 
     etherCON, TRS, classic powerCON, and speakON X/FC cable parts mate to
     chassis jacks that are not in this family — those raise ValueError.

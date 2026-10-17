@@ -165,7 +165,7 @@ def px_in(inches):
 # ---------------------------------------------------------------------------
 def _stroke_attr(stroke, stroke_width):
     if stroke is None:
-        return ' stroke="none"'
+        return ' stroke="tascam-db25_A"'
     return f' stroke="{stroke}" stroke-width="{stroke_width}"'
 
 
@@ -334,7 +334,7 @@ def _radius_at_x(profile, x_query):
 
 
 def _mating_tip_length_mm(profile):
-    """Length of the stepped-in barrel at the mating face, or 0 if none."""
+    """Length of the stepped-in barrel at the mating face, or 0 if tascam-db25_A."""
     if profile and profile[-1]["role"] == "barrel":
         return profile[-1]["length"]
     return 0.0
@@ -657,17 +657,17 @@ def _csys_overlay_svg(csys_children):
 # ---------------------------------------------------------------------------
 # XLR — XX series cable connector (NC*FXX / NC*MXX)
 # ---------------------------------------------------------------------------
-# Male NC3MXX: 70.1 mm × Ø19 catalog (Adam Hall / Neutrik NC3MXX); Neutrik's
+# Male NC3MXX_A: 70.1 mm × Ø19 catalog (Adam Hall / Neutrik NC3MXX_A); Neutrik's
 # published STEP (https://www.neutrik.com/media/13485/download/nc3mxx.stp)
 # spans 69.64 mm. Photo: black tapered boot + chuck ring, then a smooth
 # nickel shell with two circumferential grooves at the chuck end. No knurl.
-# Female NC3FXX official drawing 20006264 (NC3FXX-50, same XX envelope):
+# Female NC3FXX_A official drawing 20006264 (NC3FXX_A-50, same XX envelope):
 #   https://www.neutrik.com/media/19514/download/Drawing%20NC3FXX-50.pdf
 #   overall 72.5±1 mm, chuck max Ø20.3, housing Ø19.2, mating sleeve Ø15.75.
 # Sleeve *length* is not a callout. Scaled from drawing 20006264 side/plan
 # views: the Ø15.75 tip is about one-third of the metal body (boot excluded),
 # ~15 mm, and begins at the open (mating) end of the latch.
-# Envelope length 72.9 mm is the published NC3FXX STEP bbox (within 72.5±1).
+# Envelope length 72.9 mm is the published NC3FXX_A STEP bbox (within 72.5±1).
 def xlr_xx_profile(gender):
     boot = [
         seg(16.0, 10.0, "bushing", dia_front=16.0),
@@ -684,13 +684,13 @@ def xlr_xx_profile(gender):
 
 
 # ---------------------------------------------------------------------------
-# etherCON — RJ45 cable carrier (NE8MX / NE8MC / NE8MX6)
+# etherCON — RJ45 cable carrier (NE8MX_A / NE8MC_A / NE8MX6_A)
 # ---------------------------------------------------------------------------
-# Overall length 75.5 mm, Ø19.05 shell and Ø20.3 Neutrik ridge from the NE8MX6
+# Overall length 75.5 mm, Ø19.05 shell and Ø20.3 Neutrik ridge from the NE8MX6_A
 # drawing (https://www.neutrik.com/media/10044/download/Drawing%20NE8MX6.pdf).
-# NE8MX photo: smooth nickel barrel (no knurl), latch *window* near the front,
+# NE8MX_A photo: smooth nickel barrel (no knurl), latch *window* near the front,
 # raised logo ridge at the rear of the metal, black ribbed chuck + tapered boot.
-# The CAT5 NE8MX / NE8MC carriers share the D-size compatible shell.
+# The CAT5 NE8MX_A / NE8MC_A carriers share the D-size compatible shell.
 def ethercon_profile():
     return [
         seg(12.0, 10.5, "bushing", dia_front=20.3),
@@ -702,13 +702,13 @@ def ethercon_profile():
 
 
 # ---------------------------------------------------------------------------
-# powerCON — NAC3FCA / NAC3FCB and powerCON TRUE1 / TRUE1 TOP
+# powerCON — NAC3FCA_A / NAC3FCB_A and powerCON TRUE1 / TRUE1 TOP
 # ---------------------------------------------------------------------------
 # Classic 20 A overall length 77–80 mm; TRUE1 TOP max diameter Ø28.4 mm with a
 # Ø23.6 mating barrel, per the powerCON product guide
 # https://www.neutrik.com/media/10093/download/Neutrik%20Product%20Guide%20-%2006%20powerCON%20and%20Circular%20Connectors%20PG%20EN%20202210-V25.pdf
 # TRUE1 TOP-L drawing 20003554
-# (https://www.neutrik.com/media/17429/download/NAC3FX-W-TOP-L.pdf):
+# (https://www.neutrik.com/media/17429/download/NAC3FX-W-TOP-L_A.pdf):
 #   overall 76.5–79 mm, housing Ø26.5, latch extents 16.9 / 31.9 mm.
 # Barrel length and classic Ø21 tip are not callouts; they are low-fi estimates
 # that keep the published overall length and the stepped mating nose.
@@ -735,7 +735,7 @@ def powercon_true1_profile(large_cable=False):
 
 
 # ---------------------------------------------------------------------------
-# TRS — 1/4" phone plugs (NP2X / NP3X, jumboPLUG, silentPLUG)
+# TRS — 1/4" phone plugs (NP2X_A / NP3X_A, jumboPLUG, silentPLUG)
 # ---------------------------------------------------------------------------
 # Handle Ø14.5 mm (jumboPLUG Ø17.0) and the 15.88 mm jack pitch constraint from
 # the Neutrik jacks & plugs guide; the plug shank is the IEC 60603-11 /
@@ -766,13 +766,13 @@ def phone_plug_profile(poles, handle_dia=14.5, bushing_dia=9.0):
 # ---------------------------------------------------------------------------
 # speakON — NL*FX / NL*FC cable connectors and STX metal NLT*
 # ---------------------------------------------------------------------------
-# X series overall 71.5–76.5 mm and max Ø26 from NL4FX drawing 20000981
+# X series overall 71.5–76.5 mm and max Ø26 from NL4FX_A drawing 20000981
 # https://www.neutrik.com/media/8483/download/Drawing%20NL4FX.pdf
 # FC series Ø26.0 mm, overall 76.5–80.0 mm, per the speakON product guide
 # https://www.neutrik.com/media/10094/download/03%20NEUTRIK%20PG%20E%20-%20speakON%20Connectors%20-%20202104-V21.pdf
 # Mating-tip length is not a callout; scaled from drawing 20000981 as about
 # one-third of the rigid body (boot excluded). The Ø(body−6) step is a low-fi
-# estimate of the stepped nose on that NL4FX side view.
+# estimate of the stepped nose on that NL4FX_A side view.
 # Interior station split is a drawing estimate.
 def speakon_profile(body_dia, total_length, bushing_dia):
     bushing = 22.0
@@ -923,7 +923,7 @@ def connector_svg(variant):
         (px_mm(px), -px_mm(py))
         for px, py in silhouette_closed_mm(profile_stations(profile), tab)[:-1]
     ]
-    parts.append(_poly(outline, fill="none"))
+    parts.append(_poly(outline, fill="tascam-db25_A"))
     csys = part_csys_children(variant)
 
     return f'''<?xml version="1.0" encoding="UTF-8"?>

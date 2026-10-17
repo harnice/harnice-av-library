@@ -1,0 +1,2 @@
+project_type	mfg	pn	desc	referenced_design	status	releaseticket	library_repo	library_subpath	source_part_number	source_lib_repo	source_subpath	source_refdes	datestarted	datemodified	datereleased	git_hash_of_harnice_src	drawnby	checkedby	revisionupdates	affectedinstances	last_build
+device	APPLIED RESEARCH AND TECHNOLOGY	726787_A	PREAMP, 2CH				https://github.com/harnice/harnice-av-library	devices/applied_research_and_technology/					4/19/26	9/10/26		35e4fd0889eb8a2fca9ef6905697defd267cd76b	K SHUTT		ADDED BLOCK DIAGRAM SYMBOL		
