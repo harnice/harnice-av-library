@@ -1,7 +1,8 @@
-"""NEUTRIK cable-connector chooser.
+"""NEUTRIK connector chooser.
 
-Legal SKUs for the five cable-connector product lines in this folder.
-Harness build instructions import this module, not the generator.
+Legal SKUs for the five product lines in this folder, including etherCON
+D-series chassis jacks. Harness build instructions import this module, not
+the generator.
 
     import os
     import sys
@@ -105,6 +106,47 @@ ETHERCON_CATALOG = (
         [7.0, 9.5],
         "CAT6A",
         ["Cable stripping tool", "Flush cutter"],
+    ),
+)
+
+# D-series chassis. -B is the same metal part with a black shell.
+# Both platings use gold contacts. Sources are the Neutrik drawings:
+#   NE8FDV vertical PCB  https://www.neutrik.com/media/8665/download/ne8fdv-2.pdf?v=1
+#   NE8FDP feedthrough   https://www.neutrik.com/media/8668/download/ne8fdp-3.pdf?v=1
+# NE8FDV is the vertical PCB receptacle (solder tails). The RJ45 passthrough
+# is NE8FDP: etherCON on the panel face, a standard RJ45 jack out the back.
+ETHERCON_CHASSIS = (
+    (
+        "NE8FDV",
+        "",
+        "pcb",
+        "vertical PCB panel-mount RJ45 receptacle, D-shape flange",
+        "https://www.neutrik.com/media/8665/download/ne8fdv-2.pdf?v=1",
+        ["Soldering iron"],
+    ),
+    (
+        "NE8FDV-B",
+        "B",
+        "pcb",
+        "vertical PCB panel-mount RJ45 receptacle, black D-shape flange",
+        "https://www.neutrik.com/media/8665/download/ne8fdv-2.pdf?v=1",
+        ["Soldering iron"],
+    ),
+    (
+        "NE8FDP",
+        "",
+        "feedthrough",
+        "RJ45 feedthrough receptacle, D-shape flange, rear RJ45 jack",
+        "https://www.neutrik.com/media/8668/download/ne8fdp-3.pdf?v=1",
+        [],
+    ),
+    (
+        "NE8FDP-B",
+        "B",
+        "feedthrough",
+        "RJ45 feedthrough receptacle, black D-shape flange, rear RJ45 jack",
+        "https://www.neutrik.com/media/8668/download/ne8fdp-3.pdf?v=1",
+        [],
     ),
 )
 
@@ -517,6 +559,27 @@ def _ethercon_configurations():
             "source": ETHERCON_SOURCE,
             "product_desc": desc,
         }
+    for mpn, finish, chassis, desc, source, tools in ETHERCON_CHASSIS:
+        yield {
+            "mpn": mpn,
+            "family": "etherCON",
+            "series": "CAT5e",
+            "poles": 8,
+            "gender": "female",
+            "finish": finish,
+            "palette": HOUSING_PALETTES[finish],
+            "bushing": "black",
+            "housing_material": "zinc diecast (ZnAl4Cu1)",
+            "termination": "passthrough" if chassis == "feedthrough" else "vertical PCB",
+            "cable_od_mm": None,
+            "contact_names": [str(i) for i in range(1, 9)],
+            "tools": tools,
+            "source": source,
+            "product_desc": desc,
+            "chassis": chassis,
+            "plating_override": "Au",
+            "date_started": "11/4/26",
+        }
 
 
 def _powercon_configurations():
@@ -688,7 +751,14 @@ def official_pin(cfg):
 
 
 def description_from_cfg(cfg):
-    bits = [f"NEUTRIK {cfg['family'].upper()} CABLE CONNECTOR"]
+    chassis = cfg.get("chassis")
+    if chassis == "feedthrough":
+        kind = "FEEDTHROUGH CHASSIS CONNECTOR"
+    elif chassis == "pcb":
+        kind = "VERTICAL PCB CHASSIS CONNECTOR"
+    else:
+        kind = "CABLE CONNECTOR"
+    bits = [f"NEUTRIK {cfg['family'].upper()} {kind}"]
     if cfg["family"] != "powerCON":
         bits.append(f"{cfg['poles']} POLE")
     bits.append(cfg["gender"].upper())
@@ -716,7 +786,7 @@ CATALOG_COLUMNS = (
 
 
 def catalog_row(cfg):
-    cable = cfg["cable_od_mm"]
+    cable = cfg.get("cable_od_mm") or ("", "")
     return {
         "library_pn": cfg["mpn"],
         "official_pin": cfg["mpn"],
@@ -752,7 +822,7 @@ def parse_neutrik(part_number):
     cfg = CATALOG.get(mpn)
     if cfg is None:
         raise ValueError(
-            f"Could not parse {part_number!r} as a Neutrik cable connector "
+            f"Could not parse {part_number!r} as a Neutrik connector "
             f"in this library. Legal PNs: {', '.join(list_parts())}."
         )
     return dict(cfg)
@@ -831,8 +901,10 @@ def find_mating_connector(
     powerCON TRUE1: NAC3FX-W-TOP -> NAC3MX-W-TOP
     speakON STX: NLT4FX-BAG -> NLT4MX-BAG
 
-    etherCON, TRS, classic powerCON, and speakON X/FC cable parts mate to
-    chassis jacks that are not in this family — those raise ValueError.
+    etherCON D-series chassis jacks mate to the NE8MC cable connector of the
+    same shell finish. A cable etherCON has several chassis mates, so it
+    still raises ValueError. TRS, classic powerCON, and speakON X/FC cable
+    parts mate to chassis jacks that are not in this family.
     """
     parsed = parse_neutrik(part_number)
     gender = (
@@ -848,9 +920,7 @@ def find_mating_connector(
     mate = _mate_mpn(parsed, gender, finish)
     if mate not in CATALOG:
         raise ValueError(
-            f"No cable-side mate for {parsed['mpn']!r} in this library. "
-            f"{parsed['family']} {parsed['gender']} typically mates to a "
-            "chassis connector that is not catalogued here. "
+            f"No single mate for {parsed['mpn']!r} in this library. "
             f"Legal PNs: {', '.join(list_parts(parsed['family']))}."
         )
     return mate
@@ -945,6 +1015,8 @@ def _mate_mpn(parsed, gender, finish):
     if family == "speakON" and parsed["series"] == "STX":
         code = "MX" if gender == "male" else "FX"
         return f"NLT{parsed['poles']}{code}{suffix}"
+    if family == "etherCON" and parsed.get("chassis") and gender == "male":
+        return "NE8MC-B" if finish == "B" else "NE8MC"
     return ""
 
 
@@ -960,11 +1032,11 @@ def _require_unique(matches, filters):
     pns = [cfg["mpn"] for cfg in matches]
     if not matches:
         raise ValueError(
-            f"No Neutrik cable connector matches {interesting}. "
+            f"No Neutrik connector matches {interesting}. "
             f"Legal PNs: {', '.join(list_parts())}."
         )
     raise ValueError(
-        f"Several Neutrik cable connectors match {interesting}: {', '.join(pns)}. "
+        f"Several Neutrik connectors match {interesting}: {', '.join(pns)}. "
         "Add poles / gender / finish / series / bushing until one remains."
     )
 

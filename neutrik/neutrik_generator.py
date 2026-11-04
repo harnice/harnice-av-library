@@ -392,6 +392,10 @@ def attach_iconic_tab(variant):
             8.0 if true1 else 10.0,
             from_front_mm=tip,
         )
+    elif family == "etherCON" and variant.get("chassis"):
+        # Latch lock on the etherCON face. Same camera-facing tongue as the
+        # other female shells; it does not change the side silhouette.
+        tab = make_tab(profile, 6.0, 2.2, 5.0, from_front_mm=0.0)
     elif family == "etherCON":
         tab = make_tab(profile, 8.0, 2.0, 5.0, from_front_mm=4.0)
         tab["style"] = "window"
@@ -411,6 +415,10 @@ def mating_cavity(variant):
     family, gender = variant["family"], variant["gender"]
     if family == "XLR" and gender == "male":
         return {"dia_mm": 15.75, "depth_mm": 15.0}
+    if family == "etherCON" and variant.get("chassis"):
+        # RJ45 plug opening in the etherCON face. Round stand-in for the
+        # rectangular jack; kept shallower than the D-barrel.
+        return {"dia_mm": 11.5, "depth_mm": 8.0}
     if family == "etherCON":
         return {"dia_mm": 15.75, "depth_mm": 15.0}
     return None
@@ -584,8 +592,16 @@ def mate_csys_3d(variant):
 
 
 def part_csys_children(variant):
-    """Named frames: ``3d-mate`` on the mating face, then polar flagnotes."""
+    """Named frames: ``3d-mate`` on the etherCON face, then polar flagnotes.
+
+    A feedthrough also gets ``3d-mate-rear`` on the rear RJ45 jack. That
+    frame's +X points out the back of the part (ry = 180).
+    """
     children = {"3d-mate": mate_csys_3d(variant)}
+    if variant.get("chassis") == "feedthrough":
+        rear = csys_6dof_mm(0.0, 0.0, 0.0, ry=180.0)
+        rear["rotation"] = 180
+        children["3d-mate-rear"] = rear
     children.update(
         flagnote_csys_children(
             variant["profile"], variant["mpn"], variant.get("tab")
@@ -701,6 +717,43 @@ def ethercon_profile():
     ]
 
 
+# D-series chassis, flange at the front. Side-view heights are the drawing
+# callouts; each station is revolved, so the 31 mm tall × 26 mm wide flange
+# is a Ø31 cylinder. Origin is the rear face. +X runs to the etherCON face.
+#
+# NE8FDP drawing ST-NE8FDP, flange-at-front stack:
+#   34.55 overall = 18.05 chassis behind the flange + 4.5 flange + the
+#   remaining 12.0 rear RJ45 jack. Rear-housing height on that drawing is
+#   27.64; the jack width callout is 15.9. The 12.0 mm jack length is the
+#   remainder, not its own callout.
+# NE8FDV drawing ST-NE8FDV, flange-at-front stack: 16.45 chassis + 4.5 flange.
+# Solder tails drop below the barrel. Their length is not dimensioned on
+# ST-NE8FDV, so the tail below is a low-fi estimate.
+def ethercon_d_feedthrough_profile():
+    return [
+        seg(12.0, 15.9, "bushing"),
+        seg(18.05, 24.0, "shell"),
+        seg(4.5, 31.0, "shell"),
+    ]
+
+
+def ethercon_d_pcb_profile():
+    return [
+        seg(16.45, 24.0, "shell"),
+        seg(4.5, 31.0, "shell"),
+    ]
+
+
+def ethercon_pcb_tail():
+    return {
+        "x_mm": 3.0,
+        "length_mm": 8.0,
+        "drop_mm": 6.0,
+        "width_mm": 18.0,
+        "shell_radius_mm": 12.0,
+    }
+
+
 # ---------------------------------------------------------------------------
 # powerCON — NAC3FCA / NAC3FCB and powerCON TRUE1 / TRUE1 TOP
 # ---------------------------------------------------------------------------
@@ -798,6 +851,11 @@ def profile_for(cfg):
     if family == "XLR":
         return xlr_xx_profile(cfg["gender"])
     if family == "etherCON":
+        chassis = cfg.get("chassis")
+        if chassis == "feedthrough":
+            return ethercon_d_feedthrough_profile()
+        if chassis == "pcb":
+            return ethercon_d_pcb_profile()
         return ethercon_profile()
     if family == "powerCON":
         if cfg.get("true1") or "TRUE1" in cfg["series"]:
@@ -818,6 +876,8 @@ def iter_variants(families=None):
     for cfg in neutrik.iter_part_configurations(families):
         variant = dict(cfg)
         variant["profile"] = profile_for(variant)
+        if variant.get("chassis") == "pcb":
+            variant["pcb_tail"] = ethercon_pcb_tail()
         yield attach_iconic_tab(variant)
 
 
@@ -849,9 +909,15 @@ def connector_svg(variant):
     part_number = variant["mpn"]
     profile = variant["profile"]
     pal = palette_for(variant["palette"])
+    if variant.get("chassis") == "feedthrough":
+        note = "<!-- Rear RJ45 jack at x=0; etherCON face at +X. Flange is the Ø31 station. -->"
+    elif variant.get("chassis") == "pcb":
+        note = "<!-- Vertical PCB shell from ST-NE8FDV. Solder tails drop below the barrel. -->"
+    else:
+        note = "<!-- Cable exit is embedded: chuck-type strain relief is part of this part number -->"
     parts = [
         f'<!-- {variant["family"]} {variant["series"]} envelope from {variant["source"]} -->',
-        "<!-- Cable exit is embedded: chuck-type strain relief is part of this part number -->",
+        note,
     ]
 
     x = px_mm(ORIGIN_FROM_REAR_MM)
@@ -915,6 +981,20 @@ def connector_svg(variant):
             )
         x += length
 
+    tail = variant.get("pcb_tail")
+    if tail:
+        parts.append(
+            _rect(
+                px_mm(tail["x_mm"]),
+                px_mm(tail["shell_radius_mm"]),
+                px_mm(tail["length_mm"]),
+                px_mm(tail["drop_mm"]),
+                fill=PLATING_COLORS["Au"],
+                stroke=STROKE_COLOR,
+                stroke_width=1.0,
+            )
+        )
+
     tab = variant.get("tab")
     if tab:
         parts.extend(tab_drawing_parts(tab, pal))
@@ -940,15 +1020,25 @@ def connector_svg(variant):
 def write_part_step(rev_dir, variant):
     """Write STEP with cable-side origin; cups stay at the mating face."""
     part_number = variant["mpn"]
-    path = os.path.join(rev_dir, f"{part_number}-rev{REVISION}-model.step")
+    path = os.path.join(rev_dir, "model.step")
     stations = shift_stations(
         profile_stations(variant["profile"]),
         step_origin_x_mm(),
     )
     tab = variant.get("tab")
     cavity = variant.get("cavity")
+    tail = variant.get("pcb_tail")
     window = tab if tab and tab.get("style") == "window" else None
+    tongue = tab if tab and window is None else None
     description = f"Neutrik {variant['family']} low-fidelity envelope"
+    if tail or (tongue and cavity):
+        try:
+            _write_chassis_step(
+                path, part_number, stations, cavity, tongue, tail
+            )
+            return path
+        except ImportError:
+            pass
     if tab and window is None:
         try:
             _write_revolution_with_tab_step(path, part_number, stations, tab)
@@ -964,6 +1054,91 @@ def write_part_step(rev_dir, variant):
         except ImportError:
             pass
     step_utils.write_revolution_step(path, part_number, stations, description=description)
+    return path
+
+
+def _fuse_or_compound(body, tool):
+    """Fuse tool onto body. Glue a compound when the boolean does not grow."""
+    from OCP.BRep import BRep_Builder
+    from OCP.BRepAlgoAPI import BRepAlgoAPI_Fuse
+    from OCP.Bnd import Bnd_Box
+    from OCP.BRepBndLib import BRepBndLib
+    from OCP.TopoDS import TopoDS_Compound
+
+    def _volume_box(shape):
+        bnd = Bnd_Box()
+        BRepBndLib.Add_s(shape, bnd)
+        return bnd.SquareExtent()
+
+    before = _volume_box(body)
+    op = BRepAlgoAPI_Fuse(body, tool)
+    op.Build()
+    fused = op.Shape()
+    if op.IsDone() and not fused.IsNull() and _volume_box(fused) > before + 1.0:
+        return fused
+    builder = BRep_Builder()
+    shape = TopoDS_Compound()
+    builder.MakeCompound(shape)
+    builder.Add(shape, body)
+    builder.Add(shape, tool)
+    return shape
+
+
+def _tongue_box(tab):
+    from OCP.BRepPrimAPI import BRepPrimAPI_MakeBox
+    from OCP.gp import gp_Pnt
+
+    x0 = float(tab["x_mm"])
+    length = float(tab["length_mm"])
+    height = float(tab["height_mm"])
+    width = float(tab["width_mm"])
+    radius = float(tab["shell_radius_mm"])
+    embed = min(3.0, radius * 0.4)
+    return BRepPrimAPI_MakeBox(
+        gp_Pnt(x0, -width / 2.0, radius - embed),
+        length,
+        width,
+        height + embed,
+    ).Shape()
+
+
+def _pcb_tail_box(tail):
+    from OCP.BRepPrimAPI import BRepPrimAPI_MakeBox
+    from OCP.gp import gp_Pnt
+
+    x0 = float(tail["x_mm"])
+    length = float(tail["length_mm"])
+    drop = float(tail["drop_mm"])
+    width = float(tail["width_mm"])
+    radius = float(tail["shell_radius_mm"])
+    embed = 1.5
+    return BRepPrimAPI_MakeBox(
+        gp_Pnt(x0, -(radius + drop), -width / 2.0),
+        length,
+        drop + embed,
+        width,
+    ).Shape()
+
+
+def _write_chassis_step(path, part_number, stations, cavity, tongue, tail):
+    """Revolve the D-shell, bore the etherCON face, add latch and solder tails."""
+    body = _ocp_positive_solid(stations)
+    if cavity:
+        x_face = float(stations[-1][0])
+        depth = float(cavity["depth_mm"])
+        radius = float(cavity["dia_mm"]) / 2.0
+        tool = step_utils._ocp_cylinder(
+            (x_face - depth, 0.0, 0.0),
+            (1.0, 0.0, 0.0),
+            radius,
+            depth + 1.0,
+        )
+        body = _ocp_cut(body, tool, f"{part_number} cavity")
+    if tongue:
+        body = _fuse_or_compound(body, _tongue_box(tongue))
+    if tail:
+        body = _fuse_or_compound(body, _pcb_tail_box(tail))
+    step_utils._ocp_write_shape(body, path, part_number)
     return path
 
 
@@ -1096,7 +1271,7 @@ def compile_part_attributes(variant):
         {"name": name, "size": variant["termination"]}
         for name in variant["contact_names"]
     ]
-    return {
+    attrs = {
         "tools": list(variant["tools"]),
         "build_notes": [],
         "csys_children": part_csys_children(variant),
@@ -1107,20 +1282,24 @@ def compile_part_attributes(variant):
         "poles": variant["poles"],
         "gender": variant["gender"],
         "termination": variant["termination"],
-        "finish": finish_name(variant["family"], variant["finish"]),
+        "finish": (
+            f"{HOUSING_NAMES[variant['finish']]} housing, {PLATING_NAMES[plating]} contacts"
+            if variant.get("chassis")
+            else finish_name(variant["family"], variant["finish"])
+        ),
         "contact_plating": plating,
         "housing_material": variant["housing_material"],
         "bushing_color": variant["bushing"],
-        "cable_od_mm": variant["cable_od_mm"],
-        "overall_length_mm": round(profile_length_mm(variant["profile"]), 2),
-        "max_diameter_mm": round(
-            max(
-                max(s["dia"], s.get("dia_front", s["dia"])) for s in variant["profile"]
-            ),
-            2,
-        ),
-        "datasheet": variant["source"],
     }
+    if variant.get("cable_od_mm"):
+        attrs["cable_od_mm"] = variant["cable_od_mm"]
+    attrs["overall_length_mm"] = round(profile_length_mm(variant["profile"]), 2)
+    attrs["max_diameter_mm"] = round(
+        max(max(s["dia"], s.get("dia_front", s["dia"])) for s in variant["profile"]),
+        2,
+    )
+    attrs["datasheet"] = variant["source"]
+    return attrs
 
 
 # ---------------------------------------------------------------------------
@@ -1146,7 +1325,7 @@ def revision_history_row(variant):
         "rev": REVISION,
         "desc": part_description(variant),
         "status": "",
-        "datestarted": DATE_STARTED,
+        "datestarted": variant.get("date_started", DATE_STARTED),
         "library_repo": LIBRARY_REPO,
         "library_subpath": LIBRARY_SUBPATH,
     }
@@ -1196,6 +1375,7 @@ def main(
     families=None,
     build=True,
     use_cli=False,
+    mpns=None,
 ):
     state.set_rev(REVISION)
     state.set_project_type("part")
@@ -1206,6 +1386,9 @@ def main(
         return
 
     variants = list(iter_variants(families))
+    if mpns:
+        wanted = {str(mpn).upper() for mpn in mpns}
+        variants = [variant for variant in variants if variant["mpn"].upper() in wanted]
     total = len(variants)
     family_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -1218,13 +1401,13 @@ def main(
 
         part_dir = os.path.join(family_dir, part_number)
         os.makedirs(part_dir, exist_ok=True)
-        rev_dir = os.path.join(part_dir, f"{part_number}-rev{REVISION}")
+        rev_dir = os.path.join(part_dir, f"rev{REVISION}")
         revision_history_csv_path = os.path.join(
             part_dir, f"{part_number}-revision_history.tsv"
         )
         attributes = compile_part_attributes(variant)
-        json_path = os.path.join(rev_dir, f"{part_number}-rev{REVISION}-attributes.json")
-        svg_path = os.path.join(rev_dir, f"{part_number}-rev{REVISION}-drawing.svg")
+        json_path = os.path.join(rev_dir, "attributes.json")
+        svg_path = os.path.join(rev_dir, "drawing.svg")
 
         if step_only or svg_only:
             os.makedirs(rev_dir, exist_ok=True)
@@ -1287,6 +1470,10 @@ FAMILY_FLAGS = {
 
 if __name__ == "__main__":
     selected = [family for flag, family in FAMILY_FLAGS.items() if flag in sys.argv]
+    mpns = None
+    if "--mpn" in sys.argv:
+        start = sys.argv.index("--mpn") + 1
+        mpns = [arg for arg in sys.argv[start:] if not arg.startswith("--")]
     main(
         step_only="--step-only" in sys.argv,
         svg_only="--svg-only" in sys.argv,
@@ -1294,4 +1481,5 @@ if __name__ == "__main__":
         families=selected or None,
         build="--no-build" not in sys.argv,
         use_cli="--use-cli" in sys.argv,
+        mpns=mpns,
     )

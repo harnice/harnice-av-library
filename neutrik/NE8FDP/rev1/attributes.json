@@ -1,0 +1,200 @@
+{
+  "tools": [],
+  "build_notes": [],
+  "csys_children": {
+    "3d-mate": {
+      "x": 1.3602,
+      "y": 0.0,
+      "z": 0.0,
+      "rx": 0.0,
+      "ry": 0.0,
+      "rz": 0.0
+    },
+    "3d-mate-rear": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "rx": 0.0,
+      "ry": 180.0,
+      "rz": 0.0,
+      "rotation": 180
+    },
+    "flagnote-1": {
+      "x": 4.3602,
+      "y": 0.0,
+      "rotation": 0
+    },
+    "flagnote-1-leader_dest": {
+      "x": 1.3602,
+      "y": 0.0,
+      "rotation": 0
+    },
+    "flagnote-2": {
+      "x": 4.258,
+      "y": 0.7765,
+      "rotation": 0
+    },
+    "flagnote-2-leader_dest": {
+      "x": 1.3602,
+      "y": 0.1822,
+      "rotation": 0
+    },
+    "flagnote-3": {
+      "x": 4.258,
+      "y": -0.7765,
+      "rotation": 0
+    },
+    "flagnote-3-leader_dest": {
+      "x": 1.3602,
+      "y": -0.1822,
+      "rotation": 0
+    },
+    "flagnote-4": {
+      "x": 3.9583,
+      "y": 1.5,
+      "rotation": 0
+    },
+    "flagnote-4-leader_dest": {
+      "x": 1.3602,
+      "y": 0.3927,
+      "rotation": 0
+    },
+    "flagnote-5": {
+      "x": 3.9583,
+      "y": -1.5,
+      "rotation": 0
+    },
+    "flagnote-5-leader_dest": {
+      "x": 1.3602,
+      "y": -0.3927,
+      "rotation": 0
+    },
+    "flagnote-6": {
+      "x": 3.4816,
+      "y": 2.1213,
+      "rotation": 0
+    },
+    "flagnote-6-leader_dest": {
+      "x": 1.2904,
+      "y": 0.6102,
+      "rotation": 0
+    },
+    "flagnote-7": {
+      "x": 3.4816,
+      "y": -2.1213,
+      "rotation": 0
+    },
+    "flagnote-7-leader_dest": {
+      "x": 1.2904,
+      "y": -0.6102,
+      "rotation": 0
+    },
+    "flagnote-8": {
+      "x": 2.8602,
+      "y": 2.5981,
+      "rotation": 0
+    },
+    "flagnote-8-leader_dest": {
+      "x": 0.9529,
+      "y": 0.4724,
+      "rotation": 0
+    },
+    "flagnote-9": {
+      "x": 2.8602,
+      "y": -2.5981,
+      "rotation": 0
+    },
+    "flagnote-9-leader_dest": {
+      "x": 0.9529,
+      "y": -0.4724,
+      "rotation": 0
+    },
+    "flagnote-10": {
+      "x": 2.1367,
+      "y": -2.8978,
+      "rotation": 0
+    },
+    "flagnote-10-leader_dest": {
+      "x": 0.8067,
+      "y": -0.4724,
+      "rotation": 0
+    },
+    "flagnote-11": {
+      "x": 2.1367,
+      "y": 2.8978,
+      "rotation": 0
+    },
+    "flagnote-11-leader_dest": {
+      "x": 0.8067,
+      "y": 0.4724,
+      "rotation": 0
+    },
+    "flagnote-12": {
+      "x": 1.3602,
+      "y": -3.0,
+      "rotation": 0
+    },
+    "flagnote-12-leader_dest": {
+      "x": 0.6801,
+      "y": -0.4724,
+      "rotation": 0
+    },
+    "flagnote-13": {
+      "x": 1.3602,
+      "y": 3.0,
+      "rotation": 0
+    },
+    "flagnote-13-leader_dest": {
+      "x": 0.6801,
+      "y": 0.4724,
+      "rotation": 0
+    }
+  },
+  "contacts": [
+    {
+      "name": "1",
+      "size": "passthrough"
+    },
+    {
+      "name": "2",
+      "size": "passthrough"
+    },
+    {
+      "name": "3",
+      "size": "passthrough"
+    },
+    {
+      "name": "4",
+      "size": "passthrough"
+    },
+    {
+      "name": "5",
+      "size": "passthrough"
+    },
+    {
+      "name": "6",
+      "size": "passthrough"
+    },
+    {
+      "name": "7",
+      "size": "passthrough"
+    },
+    {
+      "name": "8",
+      "size": "passthrough"
+    }
+  ],
+  "mfg": "Neutrik",
+  "family": "etherCON",
+  "series": "CAT5e",
+  "poles": 8,
+  "gender": "female",
+  "termination": "passthrough",
+  "finish": "nickel housing, gold contacts",
+  "contact_plating": "Au",
+  "housing_material": "zinc diecast (ZnAl4Cu1)",
+  "bushing_color": "black",
+  "overall_length_mm": 34.55,
+  "max_diameter_mm": 31.0,
+  "datasheet": "https://www.neutrik.com/media/8668/download/ne8fdp-3.pdf?v=1"
+}

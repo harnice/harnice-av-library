@@ -1,0 +1,193 @@
+{
+  "tools": [
+    "Soldering iron"
+  ],
+  "build_notes": [],
+  "csys_children": {
+    "3d-mate": {
+      "x": 0.8248,
+      "y": 0.0,
+      "z": 0.0,
+      "rx": 0.0,
+      "ry": 0.0,
+      "rz": 0.0
+    },
+    "flagnote-1": {
+      "x": 3.8248,
+      "y": 0.0,
+      "rotation": 0
+    },
+    "flagnote-1-leader_dest": {
+      "x": 0.8248,
+      "y": 0.0,
+      "rotation": 0
+    },
+    "flagnote-2": {
+      "x": 3.7226,
+      "y": 0.7765,
+      "rotation": 0
+    },
+    "flagnote-2-leader_dest": {
+      "x": 0.8248,
+      "y": 0.1105,
+      "rotation": 0
+    },
+    "flagnote-3": {
+      "x": 3.7226,
+      "y": -0.7765,
+      "rotation": 0
+    },
+    "flagnote-3-leader_dest": {
+      "x": 0.8248,
+      "y": -0.1105,
+      "rotation": 0
+    },
+    "flagnote-4": {
+      "x": 3.4229,
+      "y": 1.5,
+      "rotation": 0
+    },
+    "flagnote-4-leader_dest": {
+      "x": 0.8248,
+      "y": 0.2381,
+      "rotation": 0
+    },
+    "flagnote-5": {
+      "x": 3.4229,
+      "y": -1.5,
+      "rotation": 0
+    },
+    "flagnote-5-leader_dest": {
+      "x": 0.8248,
+      "y": -0.2381,
+      "rotation": 0
+    },
+    "flagnote-6": {
+      "x": 2.9461,
+      "y": 2.1213,
+      "rotation": 0
+    },
+    "flagnote-6-leader_dest": {
+      "x": 0.8248,
+      "y": 0.4124,
+      "rotation": 0
+    },
+    "flagnote-7": {
+      "x": 2.9461,
+      "y": -2.1213,
+      "rotation": 0
+    },
+    "flagnote-7-leader_dest": {
+      "x": 0.8248,
+      "y": -0.4124,
+      "rotation": 0
+    },
+    "flagnote-8": {
+      "x": 2.3248,
+      "y": 2.5981,
+      "rotation": 0
+    },
+    "flagnote-8-leader_dest": {
+      "x": 0.7647,
+      "y": 0.6102,
+      "rotation": 0
+    },
+    "flagnote-9": {
+      "x": 2.3248,
+      "y": -2.5981,
+      "rotation": 0
+    },
+    "flagnote-9-leader_dest": {
+      "x": 0.7647,
+      "y": -0.6102,
+      "rotation": 0
+    },
+    "flagnote-10": {
+      "x": 1.6013,
+      "y": -2.8978,
+      "rotation": 0
+    },
+    "flagnote-10-leader_dest": {
+      "x": 0.539,
+      "y": -0.4724,
+      "rotation": 0
+    },
+    "flagnote-11": {
+      "x": 1.6013,
+      "y": 2.8978,
+      "rotation": 0
+    },
+    "flagnote-11-leader_dest": {
+      "x": 0.539,
+      "y": 0.4724,
+      "rotation": 0
+    },
+    "flagnote-12": {
+      "x": 0.8248,
+      "y": -3.0,
+      "rotation": 0
+    },
+    "flagnote-12-leader_dest": {
+      "x": 0.4124,
+      "y": -0.4724,
+      "rotation": 0
+    },
+    "flagnote-13": {
+      "x": 0.8248,
+      "y": 3.0,
+      "rotation": 0
+    },
+    "flagnote-13-leader_dest": {
+      "x": 0.4124,
+      "y": 0.4724,
+      "rotation": 0
+    }
+  },
+  "contacts": [
+    {
+      "name": "1",
+      "size": "vertical PCB"
+    },
+    {
+      "name": "2",
+      "size": "vertical PCB"
+    },
+    {
+      "name": "3",
+      "size": "vertical PCB"
+    },
+    {
+      "name": "4",
+      "size": "vertical PCB"
+    },
+    {
+      "name": "5",
+      "size": "vertical PCB"
+    },
+    {
+      "name": "6",
+      "size": "vertical PCB"
+    },
+    {
+      "name": "7",
+      "size": "vertical PCB"
+    },
+    {
+      "name": "8",
+      "size": "vertical PCB"
+    }
+  ],
+  "mfg": "Neutrik",
+  "family": "etherCON",
+  "series": "CAT5e",
+  "poles": 8,
+  "gender": "female",
+  "termination": "vertical PCB",
+  "finish": "black chrome housing, gold contacts",
+  "contact_plating": "Au",
+  "housing_material": "zinc diecast (ZnAl4Cu1)",
+  "bushing_color": "black",
+  "overall_length_mm": 20.95,
+  "max_diameter_mm": 31.0,
+  "datasheet": "https://www.neutrik.com/media/8665/download/ne8fdv-2.pdf?v=1"
+}
