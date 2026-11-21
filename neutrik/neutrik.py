@@ -6,7 +6,7 @@ Harness build instructions import this module, not the generator.
     import os
     import sys
 
-    from harnice.lists import instances_list
+    from harnice.lists import instances
     from harnice.utils import library_utils
 
     LIBRARY_REPO = "https://github.com/harnice/harnice-av-library"
@@ -16,13 +16,13 @@ Harness build instructions import this module, not the generator.
     )
     import neutrik
 
-    for instance in instances_list.read():
+    for instance in instances.read():
         if instance.get("item_type") != "harness_connector":
             continue
         device_mpn = instance.get("device_side_connector_mpn") or ""
         if not device_mpn.upper().startswith("NC"):
             continue
-        instances_list.modify(
+        instances.modify(
             instance.get("instance_name"),
             {
                 "mpn": neutrik.find_mating_connector(device_mpn),

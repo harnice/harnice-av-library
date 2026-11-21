@@ -5,16 +5,16 @@ ch_type_ids = {
     "A": {
         "balanced audio mic level in": (
             1,
-            "https://github.com/harnice/harnice",
+            "https://github.com/harnice/harnice-general-library",
         ),
-        "chassis": (5, "https://github.com/harnice/harnice"),
+        "chassis": (5, "https://github.com/harnice/harnice-general-library"),
     },
     "B": {
         "balanced audio mic level out": (
             2,
-            "https://github.com/harnice/harnice",
+            "https://github.com/harnice/harnice-general-library",
         ),
-        "chassis": (5, "https://github.com/harnice/harnice"),
+        "chassis": (5, "https://github.com/harnice/harnice-general-library"),
     },
 }
 
